@@ -21,5 +21,13 @@
     <ClCompile Include="test_pyo.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shop.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
