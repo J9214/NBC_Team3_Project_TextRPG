@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="test_pyo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shop.h" />
