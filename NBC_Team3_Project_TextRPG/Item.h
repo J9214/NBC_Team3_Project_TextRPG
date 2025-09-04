@@ -15,5 +15,6 @@ public:
 	virtual ~Item() = default;
 
 	std::string getName() const;
+	int getPrice() const;
 	virtual void use(Character* character) = 0;
 };
