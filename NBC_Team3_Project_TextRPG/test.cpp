@@ -1,9 +1,12 @@
 #include <iostream>
+#include "GameManager.h"
 using namespace std;
 
 int main()
 {
-	cout << "Hello World!\n";
+	GameManager gameManager;
+
+	gameManager.MainMenu();
 
 
 
