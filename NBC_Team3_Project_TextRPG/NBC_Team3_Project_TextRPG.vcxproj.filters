@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <ClCompile Include="Shop.cpp">
+=======
     <ClCompile Include="test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -34,6 +37,19 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
+>>>>>>> Develope
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackBoost.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPotion.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,6 +57,19 @@
     <ClInclude Include="Shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="AttackBoost.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPotion.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>소스 파일</Filter>
+=======
     <ClInclude Include="GameManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -55,6 +84,7 @@
     </ClInclude>
     <ClInclude Include="HealthPotion.h">
       <Filter>헤더 파일</Filter>
+>>>>>>> Develope
     </ClInclude>
   </ItemGroup>
 </Project>
