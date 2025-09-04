@@ -1,9 +1,9 @@
 #include "Item.h"
 using namespace std;
 
-Item::Item() {}
+Item::Item() : name(""), price(0) {}
 
-Item::Item(string name) : name(name) {}
+Item::Item(string name, int price) : name(name), price(price) {}
 
 string Item::getName() const
 {

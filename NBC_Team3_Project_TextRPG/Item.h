@@ -7,10 +7,11 @@ class Item
 {
 private:
 	std::string name;
+	int price;
 
 public:
-	Item(); 
-	Item(std::string name);
+	Item();
+	Item(std::string name, int price);
 	virtual ~Item() = default;
 
 	std::string getName() const;
