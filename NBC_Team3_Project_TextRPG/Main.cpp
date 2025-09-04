@@ -6,7 +6,7 @@ int main(void)
 {
 	GameManager* gameManager;
 	gameManager = new GameManager();
-	gameManager->MainMenu();
+	gameManager->PlayMainMenu();
 	gameManager->~GameManager();
 	gameManager = nullptr;
 	return 0;

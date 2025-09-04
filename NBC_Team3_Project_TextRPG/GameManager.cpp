@@ -2,8 +2,7 @@
 #include <string>
 #include "GameManager.h"
 #include "Character.h"
-
-using namespace std;
+#include "Goblin.h"
 
 Character* GameManager::MakeCharacter()
 {
@@ -119,8 +118,6 @@ void GameManager::ShopEnter()
 	return;
 }
 
-
-
 void GameManager::ShowCharacterInfo()
 {
 	player->displayStatus();
@@ -168,61 +165,56 @@ void GameManager::ShowCharacterInfo()
 void GameManager::PlayBattle()
 {
 	cout << "플레이어 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
-	//cout << "몬스터 체력: " << monster->getHP() << " | 공격력: " << monster->getAttack() << endl;
+	cout << "몬스터 체력: " << monster->getHealth() << " | 공격력: " << monster->getAttack() << endl;
 	cout << "전투 개시!" <<endl;
 	cout << endl;
 
-	/*
-	while (player->getHP() != 0 && monster->getHP() != 0)
+	bool isTest = true;
+	while (player->getHealth() != 0 && monster->getHealth() != 0)
 	{
 		cout << "플레이어의 턴!" << endl;
-		if(	balltesystem.useitem(player) == true) // Item use;
+		if(	/*balltesystem.useitem(player) */isTest == true) // Item use;
 		{
 			cout << "플레이어는 아이템을 사용했다." << endl;
 		}
 
 		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
-		if(	battlesystem.attack(player, monster) == true) // if hp = 0 return true;
+		if(	/*battlesystem.playerattack(player, monster) */isTest == false) // if hp = 0 return true;
 		{
-			cout << "몬스터의 남은 체력: " << monster->getHP() << endl;
+			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
 			cout << "몬스터는 사망하였다." << endl;
 			cout << "플레이어 승리! " << endl;
-			battlesystem.reward(player); // player exp, gold, item;
+			//battlesystem.reward(player); // player exp, gold, item;
 			return;
 		}
 
-		cout << "몬스터의 남은 체력: " << monster->getHP() << endl;
+		cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
 		cout << "몬스터의 턴!" << endl;
 
 		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
-		if(	battlesystem.attack(monster, player) == true)
+		if(	/*battlesystem.monsterattack(monster, player) */isTest == true)
 		{
-			cout << "플레이어의 남은 체력: " << player->getHP() << endl;
+			player->setHealth(0);
+			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
 			cout << "플레이어는 사망하였다." << endl;
 			cout << "몬스터의 승리! " << endl;
 			return;
 		}
-
-		cout << "플레이어의 남은 체력: " << player->getHP() << endl;
+		//test
+		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
 	}
-	*/
-
+	
 	return;
 }
 
-void GameManager::MainMenu()
+void GameManager::PlayMainMenu()
 {
 
 	if (player == nullptr)
 	{
 		player = MakeCharacter();
 	}
-	/*
-	if(monster == nullptr)
-{
-	// monster = MonsterGeneration();
-}
-	*/
+
 	while (player->getHealth() != 0)
 	{
 		cout << "텍스트 기반 RPG 게임" << endl;
@@ -248,7 +240,13 @@ void GameManager::MainMenu()
 	
 		if (choice == 1)
 		{
-			Battle();
+			if (monster == nullptr)
+			{
+				monster = new Goblin(player->getLevel());
+			}
+			PlayBattle();
+			delete monster;
+			monster = nullptr;
 			continue;
 		}
 		else if (choice == 2)
