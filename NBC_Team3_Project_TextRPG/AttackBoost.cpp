@@ -1,12 +1,13 @@
 #include "AttackBoost.h"
+#include "Character.h"
+#include <cmath>
 
 AttackBoost::AttackBoost() :
-	Item("AttackBoost"),
+	Item("AttackBoost", 15),
 	attackIncrease(10)
 {}
 
 void AttackBoost::use(Character* character)
 {
-	// Character에 일시적으로 attack 값을 증가시키는 함수가 있어야함.
-	character->setAttack(attackIncrease);
+	character->setAttack(character->getAttack() + attackIncrease);
 }

@@ -125,25 +125,15 @@
   <ItemGroup>
     <ClCompile Include="AttackBoost.cpp" />
     <ClCompile Include="Character.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="HealthPotion.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Shop.cpp" />
-=======
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Shop.cpp" />
-    <ClCompile Include="test.cpp" />
->>>>>>> Develope
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackBoost.h" />
     <ClInclude Include="Character.h" />
-<<<<<<< HEAD
-=======
     <ClInclude Include="GameManager.h" />
->>>>>>> Develope
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Shop.h" />
