@@ -6,11 +6,12 @@ Character::Character(std::string name)
 {
 	this->name = name;
 	this->level = 1;
-	this->health = 100;
-	this->maxHealth = 100;
-	this->attack = 10;
+	this->maxHealth = 200; 
+	this->health = this->maxHealth;
+	this->attack = 30;
 	this->experience = 0;
 	this->gold = 0;
+	this->inventory = {};
 }
 
 Character* Character::getInstance(std::string name)
@@ -34,26 +35,33 @@ void Character::displayStatus()
 
 void Character::levelUp()
 {
-	if (experience >= 100) {
+	while (level < maxLevel && experience >= 100) {
 		level++;
-		experience = 0;
+		experience -= 100;
+		maxHealth += maxHealth + (level * 20);
 		health = maxHealth;
-		attack += 5;
+		attack += attack + (level * 5);
 	}
 }
 
 void Character::useItem(int index)
 {
-	// Item item = inventory[index];
-	// if (item.getType() == "health") {
-	// 	health += item.getEffect();
-	// 	if (health > maxHealth) health = maxHealth;
-	// }
-	// else if (item.getType() == "attack") {
-	// 	attack += item.getEffect();
-	// }
-	// inventory.erase(inventory.begin() + index);
+	/*Item* item = inventory[index];
+	if (item->getName() == "health") {
+		health += item.getEffect();
+		if (health > maxHealth) health = maxHealth;
+	}
+	else if (item.getType() == "attack") {
+		attack += item.getEffect();
+	}
+	inventory.erase(inventory.begin() + index);*/
 }
+
+void Character::visitShop()
+{
+
+}
+
 Character::~Character()
 {
 }
