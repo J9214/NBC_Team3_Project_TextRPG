@@ -164,30 +164,30 @@ void GameManager::ShowCharacterInfo()
 }
 */
 
-/*
-void GameManager::Battle()
-{
 
-	cout << "플레이어 체력: " << player->getHP() << " | 공격력: " << player->getAttack() << endl;
-	cout << "몬스터 체력: " << monster->getHP() << " | 공격력: " << monster->getAttack() << endl;
+void GameManager::PlayBattle()
+{
+	cout << "플레이어 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
+	//cout << "몬스터 체력: " << monster->getHP() << " | 공격력: " << monster->getAttack() << endl;
 	cout << "전투 개시!" <<endl;
 	cout << endl;
 
+	/*
 	while (player->getHP() != 0 && monster->getHP() != 0)
 	{
 		cout << "플레이어의 턴!" << endl;
-		if(	balltesystem.useitem(inventory, player) == true)
+		if(	balltesystem.useitem(player) == true) // Item use;
 		{
 			cout << "플레이어는 아이템을 사용했다." << endl;
 		}
 
 		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
-		if(	battlesystem.attack(player, monster) == true)
+		if(	battlesystem.attack(player, monster) == true) // if hp = 0 return true;
 		{
 			cout << "몬스터의 남은 체력: " << monster->getHP() << endl;
 			cout << "몬스터는 사망하였다." << endl;
 			cout << "플레이어 승리! " << endl;
-			battlesystem.reward(player);
+			battlesystem.reward(player); // player exp, gold, item;
 			return;
 		}
 
@@ -202,11 +202,14 @@ void GameManager::Battle()
 			cout << "몬스터의 승리! " << endl;
 			return;
 		}
-		cout << "플레이어의 남은 체력: " << player->getHP() << endl;
 
+		cout << "플레이어의 남은 체력: " << player->getHP() << endl;
 	}
+	*/
+
+	return;
 }
-*/
+
 void GameManager::MainMenu()
 {
 
@@ -245,7 +248,7 @@ void GameManager::MainMenu()
 	
 		if (choice == 1)
 		{
-			//Battle();
+			Battle();
 			continue;
 		}
 		else if (choice == 2)

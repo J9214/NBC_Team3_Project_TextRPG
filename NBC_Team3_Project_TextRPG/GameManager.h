@@ -22,7 +22,7 @@ private:
 	void ShowCharacterInfo();
 	//void ShowInventory();
 
-	//void Battle();
+	void PlayBattle();
 public:
 	GameManager() : player(nullptr) {}
 	void MainMenu();
