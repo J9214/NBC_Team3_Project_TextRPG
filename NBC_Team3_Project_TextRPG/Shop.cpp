@@ -62,10 +62,12 @@ void Shop::buyItem(int index, Character* player)
 
 void Shop::sellItem(int index, Character* player)
 {	
-	if (player->getItem(index) != nullptr)
+	auto ItemToSell = player->getItem(index);
+
+	if (ItemToSell != nullptr)
 	{
 		// 플레이어 인벤토리에서 판매할 물건 선택 후 원가 * 0.6 가격으로 판매
-		player->setGold(player->getGold() + (player->getItem(index)->getPrice() * 6) / 10);
+		player->setGold(player->getGold() + (ItemToSell->getPrice() * 6) / 10);
 
 		// 플레이어 인벤토리에서 판매한 아이템 삭제
 		player->eraseItem(index);
