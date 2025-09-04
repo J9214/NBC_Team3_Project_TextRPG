@@ -56,18 +56,15 @@ void Shop::buyItem(int index, Character* player)
 	}
 	else
 	{
-		cout << "아이템을 구매할 수 없습니다." << endl;
+		cout << "소지한 골드가 부족하여 아이템을 구매할 수 없습니다." << endl;
 	}	
 }
 
 void Shop::sellItem(int index, Character* player)
-{
-	// 예외 처리
-	
-	// 플레이어 인벤토리에서 판매할 물건 선택
-	player->eraseItem(index);
-
-	// 원가 * 0.6 가격으로 판매
+{	
+	// 플레이어 인벤토리에서 판매할 물건 선택 후 원가 * 0.6 가격으로 판매
+	player->setGold(player->getGold() + (player->getItem(index)->getPrice() * 6) / 10);
 
 	// 플레이어 인벤토리에서 판매한 아이템 삭제
+	player->eraseItem(index);
 }
