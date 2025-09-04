@@ -38,32 +38,22 @@ void Shop::displayItems()
 
 void Shop::buyItem(int index, Character* player)
 {
-<<<<<<< HEAD
-	// ���� ó��: �߸��� ��ȣ �Է�
-	if (index <= 0 || index > static_cast<int>(availableItems.size()))
-=======
 	// 예외 처리: 잘못된 번호 입력
 	if (index <= 0 || index >= static_cast<int>(availableItems.size()))
->>>>>>> Develope
 	{
 		cout << "잘못된 입력입니다." << endl;
 		return;
 	}
 
-<<<<<<< HEAD
-	// �÷��̾ ������ ��尡 ���� ���� �̻��� �� �Ǹ�(ü�� ����: 10 Gold, ���ݷ� ��ȭ: 15 Gold)
-	if (player->getGold() >= availableItems[index]->getPrice())
-=======
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 판매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	if (player->getGold() >= 15)
->>>>>>> Develope
+	if (player->getGold() >= availableItems[index]->getPrice())
 	{
 		player->setGold(player->getGold() - availableItems[index]->getPrice());
-		cout << availableItems[index]->getName() << "��(��) �����Ͽ����ϴ�." << endl;
+		cout << availableItems[index]->getName() << "을 구매하였습니다." << endl;
 	}
 	else
 	{
-		cout << "�������� ������ �� �����ϴ�." << endl;
+		cout << "아이템을 구매할 수 없습니다." << endl;
 	}
 }
 
