@@ -65,9 +65,28 @@ void Character::useItem(int index)
 	inventory.erase(inventory.begin() + index);
 }
 
-void Character::visitShop()
+void Character::addItem(Item* item)
 {
+	if(inventory.size() >= maxInventorySize) {
+		std::cout << "인벤토리가 가득 찼습니다." << std::endl;
+		return;
+	}
+	inventory.push_back(item);
+}
 
+void Character::eraseItem(int index)
+{
+	if (index < 0 || index >= inventory.size()) {
+		std::cout << "잘못된 인덱스입니다." << std::endl;
+		return;
+	}
+	Item* item = inventory[index];
+	if (item == nullptr) {
+		std::cout << "아이템이 없습니다." << std::endl;
+		return;
+	}
+	delete item;
+	inventory.erase(inventory.begin() + index);
 }
 
 string Character::getName() { return name; }
@@ -79,6 +98,8 @@ int Character::getMaxLevel() { return maxLevel; }
 int Character::getExperience() { return experience; }
 int Character::getMaxExperience() { return maxExperience; }
 int Character::getGold() { return gold; }
+int Character::getInventorySize() { return inventory.size(); }
+int Character::getMaxInventorySize() { return maxInventorySize; }
 
 void Character::setHealth(int health) { this->health = health; }
 void Character::setMaxHealth(int health) { this->maxHealth = health; }

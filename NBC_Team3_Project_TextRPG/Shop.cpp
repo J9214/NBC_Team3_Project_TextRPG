@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "Shop.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
@@ -46,13 +46,21 @@ void Shop::buyItem(int index, Character* player)
 	}
 
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 판매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	// ...
+	if (player->getGold() >= availableItems[index]->getPrice())
+	{
+		player->setGold(player->getGold() - availableItems[index]->getPrice());
+		cout << availableItems[index]->getName() << "을 구매하였습니다." << endl;
+	}
+	else
+	{
+		cout << "아이템을 구매할 수 없습니다." << endl;
+	}	
 }
 
 void Shop::sellItem(int index, Character* player)
 {
 	// 플레이어 인벤토리 아이템 목록 출력
-
+	
 	// 플레이어 인벤토리에서 판매할 물건 선택
 
 	// 원가 * 0.6 가격으로 판매
