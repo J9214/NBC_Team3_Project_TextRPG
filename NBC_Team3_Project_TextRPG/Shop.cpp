@@ -39,7 +39,7 @@ void Shop::displayItems()
 void Shop::buyItem(int index, Character* player)
 {
 	// 예외 처리: 잘못된 번호 입력
-	if (index <= 0 || index >= static_cast<int>(availableItems.size()))
+	if (index < 0 || index >= static_cast<int>(availableItems.size()))
 	{
 		cout << "잘못된 입력입니다." << endl;
 		return;
