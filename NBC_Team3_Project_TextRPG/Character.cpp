@@ -44,9 +44,9 @@ void Character::levelUp()
 	while (level < maxLevel && experience >= 100) {
 		level++;
 		experience -= 100;
-		maxHealth += maxHealth + (level * 20);
+		maxHealth += level * 20;
 		health = maxHealth;
-		attack += attack + (level * 5);
+		attack += level * 5;
 	}
 }
 
