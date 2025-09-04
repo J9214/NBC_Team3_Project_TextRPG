@@ -29,7 +29,7 @@ void Shop::displayItems()
 	size_t LoopCount = availableItems.size();
 
 	for (size_t i = 0; i < LoopCount; ++i)
-	{	
+	{
 		cout << i + 1 << ". " << availableItems[i]->getName() << "N" << "Gold" << endl;
 	}
 
@@ -50,6 +50,7 @@ void Shop::buyItem(int index, Character* player)
 	{
 		player->setGold(player->getGold() - 15);
 	}
+	// ...
 }
 
 void Shop::sellItem(int index, Character* player)
@@ -57,8 +58,8 @@ void Shop::sellItem(int index, Character* player)
 	// 플레이어 인벤토리 아이템 목록 출력
 	
 	// 플레이어 인벤토리에서 판매할 물건 선택
-	
+
 	// 원가 * 0.6 가격으로 판매
-	
+
 	// 플레이어 인벤토리에서 판매한 아이템 삭제
 }

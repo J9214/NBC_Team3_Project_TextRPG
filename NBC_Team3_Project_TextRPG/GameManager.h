@@ -1,30 +1,27 @@
 #pragma once
 //#include "BattleSystem.h"
 #include "Shop.h"
-class Item;
-class Character;
-class Monster;
-class Inventory;
-class BattleSystem;
 
+class Character;
+class BattleSystem;
+/*
+	Monster* monster;
+	//BattleSystem battleSystem;
+	Shop shop;
+*/
 
 class GameManager
 {
 private:
 	Character* player;
-	Monster* monster;
-	Inventory* inventory;
-	//BattleSystem battleSystem;
-	Shop shop;
-
 	Character* MakeCharacter();
-	void ShopEnter();
+	//void ShopEnter();
 	void ShowCharacterInfo();
-	void ShowInventory();
+	//void ShowInventory();
 
-	void Battle();
+	//void Battle();
 public:
-
+	GameManager() : player(nullptr) {}
 	void MainMenu();
 
 };
