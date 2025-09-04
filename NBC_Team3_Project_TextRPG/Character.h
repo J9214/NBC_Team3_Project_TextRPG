@@ -39,6 +39,7 @@ public:
 	int getGold();
 	int getInventorySize();
 	int getMaxInventorySize();
+	Item* getItem(int index);
 
 	void setHealth(int health);
 	void setMaxHealth(int health);
@@ -48,6 +49,7 @@ public:
 	void setLevel(int level) ;
 
 	void displayStatus();
+	void displayInventory();
 	void levelUp();
 	void useItem(int index);
 	void addItem(Item* item);
