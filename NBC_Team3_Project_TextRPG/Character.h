@@ -14,6 +14,7 @@ private:
 	int maxHealth;
 	int attack;
 	int experience;
+	int maxExperience = 100;
 	int gold;
 
 	// Item 
@@ -26,19 +27,22 @@ public:
 	Character(std::string name);
 	static Character* getInstance(std::string name);
 
+	std::string getName();
 	int getHealth();
 	int getMaxHealth();
 	int getAttack();
 	int getLevel();
+	int getMaxLevel();
 	int getExperience();
+	int getMaxExperience();
 	int getGold();
 	
-	void setHealth(int h);
-	void setMaxHealth(int h);
-	void setAttack(int a);
-	void setExperience(int exp);
-	void setGold(int g);
-	void setLevel(int l) ;
+	void setHealth(int health);
+	void setMaxHealth(int health);
+	void setAttack(int attack);
+	void setExperience(int experience);
+	void setGold(int gold);
+	void setLevel(int level) ;
 
 	void displayStatus();
 	void levelUp();
