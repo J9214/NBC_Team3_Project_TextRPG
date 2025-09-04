@@ -14,7 +14,8 @@ Character::Character(std::string name)
 
 Character* Character::getInstance(std::string name)
 {
-	
+	static Character instance(name);
+	return &instance;
 }
 
 void Character::displayStatus()
