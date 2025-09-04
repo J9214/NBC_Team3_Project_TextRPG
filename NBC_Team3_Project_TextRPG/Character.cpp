@@ -28,10 +28,15 @@ void Character::displayStatus()
 	 cout << "Attack: " << attack << endl;
 	 cout << "Experience: " << experience << endl;
 	 cout << "Gold: " << gold << endl;
-	 cout << "Inventory: " << endl;
-	 for (size_t i = 0; i < inventory.size(); i++) {
-		 cout << i + 1 << ". " << inventory[i]->getName() << endl;
-	 }
+	 displayInventory();
+}
+
+void Character::displayInventory()
+{
+	cout << "Inventory: " << endl;
+	for (size_t i = 0; i < inventory.size(); i++) {
+		cout << i + 1 << ". " << inventory[i]->getName() << endl;
+	}
 }
 
 void Character::levelUp()
@@ -100,6 +105,14 @@ int Character::getMaxExperience() { return maxExperience; }
 int Character::getGold() { return gold; }
 int Character::getInventorySize() { return inventory.size(); }
 int Character::getMaxInventorySize() { return maxInventorySize; }
+Item* Character::getItem(int index) { 
+	if (index < 0 || index >= inventory.size()) 
+	{
+		std::cout << "잘못된 인덱스입니다." << std::endl;
+		return nullptr;
+	}
+	return inventory[index]; 
+}
 
 void Character::setHealth(int health) { this->health = health; }
 void Character::setMaxHealth(int health) { this->maxHealth = health; }
