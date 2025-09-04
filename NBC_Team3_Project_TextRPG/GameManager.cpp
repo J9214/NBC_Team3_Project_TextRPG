@@ -15,7 +15,7 @@ Character* GameManager::MakeCharacter()
 
 		if (cin.fail() || name == "")
 		{
-			cout << "잘못된 입력입니다. 다시 입력해주세요." << endl;
+			cout << "log make player : 잘못된 입력입니다. 다시 입력해주세요." << endl;
 			cin.clear();
 			cin.ignore(10000, '\n');
 			continue;
@@ -66,7 +66,7 @@ void GameManager::ShopEnter()
 
 				if (cin.fail())
 				{
-					cout << "log manager-shop-buy: 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+					cout << "log manager shop buy: 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 					cin.clear();
 					cin.ignore(10000, '\n');
 					continue;
@@ -94,7 +94,7 @@ void GameManager::ShopEnter()
 
 				if (cin.fail())
 				{
-					cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+					cout << "log manager shop sell: 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 					cin.clear();
 					cin.ignore(10000, '\n');
 					continue;
@@ -135,35 +135,6 @@ void GameManager::ShowCharacterInfo()
 	
 	return;
 }
-
-/*void GameManager::ShowInventory()
-{
-
-	int index = 1;
-	if (Inventory->Items.empty()) 
-	{
-		cout << "아이템이 없습니다." << endl;
-		cout << endl;
-		cout << "골드: " << Inventory.getGold() << endl;
-		system("pause");
-
-		return;
-	}
-
-	cout << "--- [ " << 인벤토리 목록 << " ] ---" << endl;
-
-	for (const auto& recipe : Inventory->GetItems())
-	{
-		cout << index << "번 아이템 이름: " << recipe->getName();
-		++index;
-	}
-	cout << endl;
-	cout << "골드: " << Inventory.getGold() << endl;
-
-	return;
-}
-*/
-
 
 void GameManager::PlayBattle()
 {
@@ -237,7 +208,7 @@ void GameManager::PlayMainMenu()
 
 		if (cin.fail())
 		{
-			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+			cout << "log play choice : 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 			cin.clear();
 			cin.ignore(10000, '\n');
 			continue;
@@ -273,7 +244,7 @@ void GameManager::PlayMainMenu()
 		}
 		else
 		{
-			cout << "log main : 잘못된 선택입니다. 다시 시도하세요." << endl;
+			cout << "log play main : 잘못된 선택입니다. 다시 시도하세요." << endl;
 		}
 
 		cout << "\n---------------------------\n" << endl;
