@@ -46,7 +46,10 @@ void Shop::buyItem(int index, Character* player)
 	}
 
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 판매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	// ...
+	if (player->getGold() >= 15)
+	{
+		player->setGold(player->getGold() - 15);
+	}
 }
 
 void Shop::sellItem(int index, Character* player)
