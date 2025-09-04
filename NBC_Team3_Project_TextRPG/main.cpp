@@ -1,22 +1,10 @@
-#include <iostream>
-#include "Monster.h"
-#include "Goblin.h"
+#include "GameManager.h"
 
-int main() {
-    Monster* m = new Goblin(1);
+using namespace std;
 
-    cout << "Name: " << m->getName() << endl;
-    cout << "Health: " << m->getHealth() << endl;
-    cout << "Attack: " << m->getAttack() << endl;
-
-    m->takeDamage(10);
-    cout << "Health after damage: " << m->getHealth() << endl;
-
-    m = new Goblin(2);
-    cout << "Name: " << m->getName() << endl;
-    cout << "Health: " << m->getHealth() << endl;
-    cout << "Attack: " << m->getAttack() << endl;
-
-    delete m;
+int main(void)
+{
+	GameManager gameManager;
+	gameManager.MainMenu();
 	return 0;
 }
