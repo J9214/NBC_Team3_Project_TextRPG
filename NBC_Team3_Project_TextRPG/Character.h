@@ -5,7 +5,7 @@
 
 class Character {
 private:
-	static Character* Instance();
+	//static Character* Instance();
 
 	std::string name;
 	int level;

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Character.h"
 using namespace std;
 
@@ -52,4 +53,7 @@ void Character::useItem(int index)
 	// 	attack += item.getEffect();
 	// }
 	// inventory.erase(inventory.begin() + index);
+}
+Character::~Character()
+{
 }
