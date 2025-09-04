@@ -50,7 +50,9 @@ void Shop::buyItem(int index, Character* player)
 	{
 		player->setGold(player->getGold() - availableItems[index]->getPrice());
 		cout << availableItems[index]->getName() << "을 구매하였습니다." << endl;
+		
 		// 인벤토리에 아이템 추가
+		player->addItem(availableItems[index]);
 	}
 	else
 	{
@@ -60,9 +62,10 @@ void Shop::buyItem(int index, Character* player)
 
 void Shop::sellItem(int index, Character* player)
 {
-	// 플레이어 인벤토리 아이템 목록 출력
+	// 예외 처리
 	
-	// 플레이어 인벤토리에서 판매할 물건 선택	
+	// 플레이어 인벤토리에서 판매할 물건 선택
+	player->eraseItem(index);
 
 	// 원가 * 0.6 가격으로 판매
 
