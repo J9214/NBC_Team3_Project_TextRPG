@@ -130,7 +130,6 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="test_pyo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AttackBoost.h" />
