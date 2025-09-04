@@ -14,6 +14,7 @@ private:
 
 public:
 	Shop();
+	~Shop();
 
 	void displayItems();
 	void buyItem(int index, Character* player);
