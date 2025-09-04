@@ -72,7 +72,7 @@ int Character::getGold() { return gold; }
 
 void Character::setHealth(int h) { this->health = h; }
 void Character::setMaxHealth(int h) { this->maxHealth = h; }
-void Character::getAttack(int a) { this->attack = a; }
+void Character::setAttack(int a) { this->attack = a; }
 void Character::setExperience(int exp) { this->experience = exp; }
 void Character::setGold(int g) { this->gold = g; }
 void Character::setLevel(int l) { this->level = l; }

@@ -35,7 +35,7 @@ public:
 	
 	void setHealth(int h);
 	void setMaxHealth(int h);
-	void getAttack(int a);
+	void setAttack(int a);
 	void setExperience(int exp);
 	void setGold(int g);
 	void setLevel(int l) ;
