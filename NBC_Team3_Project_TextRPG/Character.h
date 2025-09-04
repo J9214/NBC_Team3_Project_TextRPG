@@ -27,12 +27,14 @@ public:
 	static Character* getInstance(std::string name);
 
 	int getHealth() { return health; }
+	int getMaxHealth() { return maxHealth; }
 	int getAttack() { return attack; }
 	int getLevel() { return level; }
 	int getExperience() { return experience; }
 	int getGold() { return gold; }
-
+	
 	void setHealth(int h) { health = h; }	
+	void setMaxHealth(int h) { maxHealth = h; }
 	void getAttack(int a) { attack = a; }
 	void setExperience(int exp) { experience = exp; }
 	void setGold(int g) { gold = g; }
