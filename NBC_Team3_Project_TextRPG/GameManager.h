@@ -7,7 +7,7 @@ class BattleSystem;
 /*
 	Monster* monster;
 	//BattleSystem battleSystem;
-	Shop shop;
+	
 */
 
 class GameManager
@@ -15,7 +15,10 @@ class GameManager
 private:
 	Character* player;
 	Character* MakeCharacter();
-	//void ShopEnter();
+
+	Shop shop;
+
+	void ShopEnter();
 	void ShowCharacterInfo();
 	//void ShowInventory();
 
