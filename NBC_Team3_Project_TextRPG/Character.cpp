@@ -22,15 +22,15 @@ Character* Character::getInstance(std::string name)
 
 void Character::displayStatus()
 {
-	cout << "Name: " << name << endl;
-	cout << "Level: " << level << endl;
-	cout << "Health: " << health << "/" << maxHealth << endl;
-	cout << "Attack: " << attack << endl;
-	cout << "Experience: " << experience << endl;
-	cout << "Gold: " << gold << endl;
-	// cout << "Inventory: " << endl;
-	// for (size_t i = 0; i < inventory.size(); i++) {
-	// 	cout << i + 1 << ". " << inventory[i].getName() << endl;
+	 cout << "Name: " << name << endl;
+	 cout << "Level: " << level << endl;
+	 cout << "Health: " << health << "/" << maxHealth << endl;
+	 cout << "Attack: " << attack << endl;
+	 cout << "Experience: " << experience << endl;
+	 cout << "Gold: " << gold << endl;
+	 /*cout << "Inventory: " << endl;
+	 for (size_t i = 0; i < inventory.size(); i++) {
+	 cout << i + 1 << ". " << inventory[i]->getName() << endl;*/
 }
 
 void Character::levelUp()
@@ -45,22 +45,37 @@ void Character::levelUp()
 }
 
 void Character::useItem(int index)
-{
-	/*Item* item = inventory[index];
-	if (item->getName() == "health") {
-		health += item.getEffect();
-		if (health > maxHealth) health = maxHealth;
-	}
-	else if (item.getType() == "attack") {
+{	
+	Item* item = nullptr;
+	if (inventory[index] != nullptr) { item = inventory[index]; }
+
+	item->use(this);
+	delete item;
+	/*if (item->getName() == "HealthPotion") { item->use(this); }
+	else if (item->getName() == "AttackBoost") { item->use(this); }
 		attack += item.getEffect();
-	}
-	inventory.erase(inventory.begin() + index);*/
+	}*/
+	inventory.erase(inventory.begin() + index);
 }
 
 void Character::visitShop()
 {
 
 }
+
+int Character::getHealth() { return health; }
+int Character::getMaxHealth() { return maxHealth; }
+int Character::getAttack() { return attack; }
+int Character::getLevel() { return level; }
+int Character::getExperience() { return experience; }
+int Character::getGold() { return gold; }
+
+void Character::setHealth(int h) { this->health = h; }
+void Character::setMaxHealth(int h) { this->maxHealth = h; }
+void Character::setAttack(int a) { this->attack = a; }
+void Character::setExperience(int exp) { this->experience = exp; }
+void Character::setGold(int g) { this->gold = g; }
+void Character::setLevel(int l) { this->level = l; }
 
 Character::~Character()
 {
