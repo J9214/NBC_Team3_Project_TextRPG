@@ -48,13 +48,13 @@ void Character::levelUp()
 void Character::useItem(int index)
 {	
 	if (index < 0 || index >= inventory.size()) {
-		std::cout << "Àß¸øµÈ ÀÎµ¦½ºÀÔ´Ï´Ù." << std::endl;
+		std::cout << "ìž˜ëª»ëœ ì¸ë±ìŠ¤ìž…ë‹ˆë‹¤." << std::endl;
 		return;
 	}
 
 	Item* item = inventory[index];
 	if (item == nullptr) {
-		std::cout << "¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù." << std::endl;
+		std::cout << "ì•„ì´í…œì´ ì—†ìŠµë‹ˆë‹¤." << std::endl;
 		return;
 	}
 

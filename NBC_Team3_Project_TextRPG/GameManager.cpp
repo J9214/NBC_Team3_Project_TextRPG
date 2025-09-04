@@ -97,11 +97,11 @@ void GameManager::ShowCharacterInfo()
 {
 
 	cout << "플레이어 캐릭터 정보" << endl;
-	cout << "플레이어 이름: " << "" << endl;
-	cout << "레벨: " << player->getLevel() << " / 10" << endl;
+	cout << "플레이어 이름: " << player->getName() << endl;
+	cout << "레벨: " << player->getLevel() << " / " << player->getMaxLevel() << endl;
 	cout << "체력: " << player->getHealth() << " / " << player->getMaxHealth() << endl;
 	cout << "공격력: " << player->getAttack() << endl;
-	cout << "경험치: " << player->getExperience() << " / 100" << endl;
+	cout << "경험치: " << player->getExperience() << " / " << player->getMaxExperience() << endl;
 	
 	return;
 }
