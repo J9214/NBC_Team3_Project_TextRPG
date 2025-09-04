@@ -9,7 +9,7 @@ private:
 	std::string name;
 
 public:
-	Item(); // 기본 생성자
+	Item(); 
 	Item(std::string name);
 	virtual ~Item() = default;
 
