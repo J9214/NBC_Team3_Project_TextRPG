@@ -121,6 +121,9 @@ void Character::setExperience(int experience) { this->experience = experience; }
 void Character::setGold(int gold) { this->gold = gold; }
 void Character::setLevel(int level) { this->level = level; }
 
-Character::~Character()
-{
+Character::~Character() {
+	for (auto item : inventory) {
+		delete item;
+	}
+	inventory.clear();
 }
