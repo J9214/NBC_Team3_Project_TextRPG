@@ -33,6 +33,8 @@ void GameManager::ShopEnter()
 		cout << "상점에 오신걸 환영합니다." << endl;
 
 		shop.displayItems();
+		
+		player->setGold(100); //테스트용 골드 지급
 
 		cout << "1. 아이템을 구매합니다." << endl;
 		cout << "2. 아이템을 판매합니다." << endl;
@@ -43,7 +45,7 @@ void GameManager::ShopEnter()
 
 		if (cin.fail())
 		{
-			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+			cout << "log manager shopcoice : 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 			cin.clear();
 			cin.ignore(10000, '\n');
 			continue;
@@ -64,7 +66,7 @@ void GameManager::ShopEnter()
 
 				if (cin.fail())
 				{
-					cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+					cout << "log manager-shop-buy: 잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 					cin.clear();
 					cin.ignore(10000, '\n');
 					continue;
@@ -73,17 +75,18 @@ void GameManager::ShopEnter()
 				{
 					break;
 				}
-				shop.buyItem(index, player);
+				cout << endl;
+				shop.buyItem((index), player);
 			}
 
 		}
 		else if (shopChoice == 2)
 		{
-
 			int index = -1;
 			while(index != 0)
 			{
-				//player->showItem();
+				player->displayInventory();
+				cout << "현재 보유한 골드: " << player->getGold() << "G" << endl;
 				cout << "판매할 아이템 번호를 선택하세요: " << endl;
 				cout << "판매를 원치 않으신 경우 0을 입력하세요." << endl;
 				cout << "선택: ";
@@ -184,6 +187,10 @@ void GameManager::PlayBattle()
 			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
 			cout << "몬스터는 사망하였다." << endl;
 			cout << "플레이어 승리! " << endl;
+			if (player->getExperience() >= player->getMaxExperience())
+			{
+				player->levelUp();
+			}
 			//battlesystem.reward(player); // player exp, gold, item;
 			return;
 		}
@@ -194,7 +201,7 @@ void GameManager::PlayBattle()
 		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
 		if(	/*battlesystem.monsterattack(monster, player) */isTest == true)
 		{
-			player->setHealth(0);
+			player->setHealth(0); // Test
 			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
 			cout << "플레이어는 사망하였다." << endl;
 			cout << "몬스터의 승리! " << endl;
