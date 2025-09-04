@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include "Shop.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
@@ -24,7 +24,7 @@ Shop::~Shop()
 
 void Shop::displayItems()
 {
-	cout << "========== »óÁ¡ ==========" << endl;
+	cout << "========== ìƒì  ==========" << endl;
 
 	size_t LoopCount = availableItems.size();
 
@@ -38,14 +38,14 @@ void Shop::displayItems()
 
 void Shop::buyItem(int index, Character* player)
 {
-	// ¿¹¿Ü Ã³¸®: Àß¸øµÈ ¹øÈ£ ÀÔ·Â
+	// ì˜ˆì™¸ ì²˜ë¦¬: ì˜ëª»ëœ ë²ˆí˜¸ ì…ë ¥
 	if (index <= 0 || index >= static_cast<int>(availableItems.size()))
 	{
-		cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù." << endl;
+		cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤." << endl;
 		return;
 	}
 
-	// ÇÃ·¹ÀÌ¾î°¡ ¼ÒÁöÇÑ °ñµå°¡ ¹°°Ç °¡°İ ÀÌ»óÀÏ ¶§ ÆÇ¸Å(Ã¼·Â ¹°¾à: 10 Gold, °ø°İ·Â °­È­: 15 Gold)
+	// í”Œë ˆì´ì–´ê°€ ì†Œì§€í•œ ê³¨ë“œê°€ ë¬¼ê±´ ê°€ê²© ì´ìƒì¼ ë•Œ íŒë§¤(ì²´ë ¥ ë¬¼ì•½: 10 Gold, ê³µê²©ë ¥ ê°•í™”: 15 Gold)
 	if (player->getGold() >= 15)
 	{
 		player->setGold(player->getGold() - 15);
@@ -54,11 +54,11 @@ void Shop::buyItem(int index, Character* player)
 
 void Shop::sellItem(int index, Character* player)
 {
-	// ÇÃ·¹ÀÌ¾î ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ¸ñ·Ï Ãâ·Â
+	// í”Œë ˆì´ì–´ ì¸ë²¤í† ë¦¬ ì•„ì´í…œ ëª©ë¡ ì¶œë ¥
 	
-	// ÇÃ·¹ÀÌ¾î ÀÎº¥Åä¸®¿¡¼­ ÆÇ¸ÅÇÒ ¹°°Ç ¼±ÅÃ
+	// í”Œë ˆì´ì–´ ì¸ë²¤í† ë¦¬ì—ì„œ íŒë§¤í•  ë¬¼ê±´ ì„ íƒ
 	
-	// ¿ø°¡ * 0.6 °¡°İÀ¸·Î ÆÇ¸Å
+	// ì›ê°€ * 0.6 ê°€ê²©ìœ¼ë¡œ íŒë§¤
 	
-	// ÇÃ·¹ÀÌ¾î ÀÎº¥Åä¸®¿¡¼­ ÆÇ¸ÅÇÑ ¾ÆÀÌÅÛ »èÁ¦
+	// í”Œë ˆì´ì–´ ì¸ë²¤í† ë¦¬ì—ì„œ íŒë§¤í•œ ì•„ì´í…œ ì‚­ì œ
 }
