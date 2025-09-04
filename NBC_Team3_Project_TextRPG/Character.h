@@ -13,7 +13,7 @@ private:
 	int experience;
 	int gold;
 
-	// Item 정의 된 후 추가
+	// Item 
 	// vector<Item> invetory;
 
 public:
