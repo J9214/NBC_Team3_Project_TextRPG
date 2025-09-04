@@ -5,11 +5,12 @@
 #include "Character.h" 
 
 using namespace std;
-
-class GameManger {
-
-	
+class BattleSystem {
 	Monster* generateMonster(int level);
-	void battle(Character* player);
-
+	void playerattack(Monster* monster, Character* player);
+	void reward(Character* player);
+	void useitem(Character* player);
+	void monsterattack(Monster* monster, Character* player);
 };
+
+
