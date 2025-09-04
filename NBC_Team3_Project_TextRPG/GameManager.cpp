@@ -23,32 +23,24 @@ Character* GameManager::MakeCharacter()
 		}
 		break;	
 	}
-	return player->getInstance(name);
+	return Character::getInstance(name);
 
 }
-/*
+
 void GameManager::ShopEnter()
 {
 	while (true) 
 	{
-		system("cls");
-
-
 		cout << "상점에 오신걸 환영합니다." << endl;
-		cout << "구매 가능한 아이템: " << endl;
-		//ShopList(); 
-		//vector<item>* list = Shop->list();
-		cout << "Health Potion (체력 +50): 10 골드" << endl;
-		cout << "Attack Boost (공격력 +10): 15 골드" << endl;
 
-		//Inventory -> List();
-		cout << "4. 인벤토리" << endl;
+		shop.displayItems();
 
-		cout << "5. 종료" << endl;
-		cout << "구매할 아이템 번호를 선택하세요: ";
-
-		int choice;
-		cin >> choice;
+		cout << "1. 아이템을 구매합니다." << endl;
+		cout << "2. 아이템을 판매합니다." << endl;
+		cout << "3. 상점에서 나갑니다." << endl;
+		cout << "선택: ";
+		int shopChoice;
+		cin >> shopChoice;
 
 		if (cin.fail())
 		{
@@ -60,48 +52,86 @@ void GameManager::ShopEnter()
 
 		cout << "\n---------------------------\n" << endl;
 
-		if (choice == 1)
+		if (shopChoice == 1)
+		{
+			int index = -1;
+			while(index != 0)
+			{
+				shop.displayItems();
+				cout << "구매할 아이템 번호를 선택하세요: " << endl;
+				cout << "구매를 원치 않으신 경우 0을 입력하세요." << endl;
+				cout << "선택: ";
+				cin >> index;
+
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+					cin.clear();
+					cin.ignore(10000, '\n');
+					continue;
+				}
+				if (index == 0)
+				{
+					break;
+				}
+				shop.buyItem(index, player);
+			}
+
+		}
+		else if (shopChoice == 2)
 		{
 
-			//Shop->ByItem;
+			int index = -1;
+			while(index != 0)
+			{
+				//player->showItem();
+				cout << "판매할 아이템 번호를 선택하세요: " << endl;
+				cout << "판매를 원치 않으신 경우 0을 입력하세요." << endl;
+				cout << "선택: ";
+				cin >> index;
+
+				if (cin.fail())
+				{
+					cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+					cin.clear();
+					cin.ignore(10000, '\n');
+					continue;
+				}
+				if (index == 0)
+				{
+					break;
+				}
+				//shop.sellItems(index, player);
+			}
 		}
-		else if (choice == 2)
-		{
-		}
-		else if (choice == 3)
-		{
-		}
-		else if (choice == 4)
-		{
-		}
-		else if (choice == 5)
+		else if (shopChoice == 3)
 		{
 			cout << "상점에서 나갑니다..." << endl;
 			break;
 		}
 		else
 		{
-			cout << "잘못된 선택입니다. 다시 시도하세요." << endl;
+			cout << "log shop: 잘못된 선택입니다. 다시 시도하세요." << endl;
 		}
 
 		cout << "\n---------------------------\n" << endl;
 	}
-
-
-
+	return;
 }
-*/
+
 
 
 void GameManager::ShowCharacterInfo()
 {
-
+	player->displayStatus();
+	/*
 	cout << "플레이어 캐릭터 정보" << endl;
 	cout << "플레이어 이름: " << player->getName() << endl;
 	cout << "레벨: " << player->getLevel() << " / " << player->getMaxLevel() << endl;
 	cout << "체력: " << player->getHealth() << " / " << player->getMaxHealth() << endl;
 	cout << "공격력: " << player->getAttack() << endl;
 	cout << "경험치: " << player->getExperience() << " / " << player->getMaxExperience() << endl;
+	*/
 	
 	return;
 }
@@ -134,7 +164,8 @@ void GameManager::ShowCharacterInfo()
 }
 */
 
-/*void GameManager::Battle()
+/*
+void GameManager::Battle()
 {
 
 	cout << "플레이어 체력: " << player->getHP() << " | 공격력: " << player->getAttack() << endl;
@@ -189,21 +220,20 @@ void GameManager::MainMenu()
 	// monster = MonsterGeneration();
 }
 	*/
-	while (/*player->getHP() != 0*/ true)
+	while (player->getHealth() != 0)
 	{
 		cout << "텍스트 기반 RPG 게임" << endl;
 		cout << "1. 전투하기" << endl;
 		cout << "2. 상점" << endl;
 		cout << "3. 내 정보" << endl;
-		cout << "4. 인벤토리" << endl;
 
-		cout << "5. 종료" << endl;
+		cout << "4. 게임 종료" << endl;
 		cout << "선택: ";
 
 		int choice;
 		cin >> choice;
 
-		if (cin.fail()) 
+		if (cin.fail())
 		{
 			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
 			cin.clear();
@@ -212,30 +242,30 @@ void GameManager::MainMenu()
 		}
 
 		cout << "\n---------------------------\n" << endl;
+	
 		if (choice == 1)
 		{
 			//Battle();
+			continue;
 		}
 		else if (choice == 2)
 		{
-			//ShopEnter();
+			ShopEnter();
+			continue;
 		}
 		if (choice == 3)
 		{
 			ShowCharacterInfo();
+			continue;
 		}
 		else if (choice == 4)
-		{
-			//ShowInventory();
-		}
-		else if (choice == 5)
 		{
 			cout << "게임을 종료합니다..." << endl;
 			break;
 		}
 		else
 		{
-			cout << "잘못된 선택입니다. 다시 시도하세요." << endl;
+			cout << "log main : 잘못된 선택입니다. 다시 시도하세요." << endl;
 		}
 
 		cout << "\n---------------------------\n" << endl;
