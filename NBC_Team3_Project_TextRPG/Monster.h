@@ -1,6 +1,7 @@
 //Monster.h
 #pragma once
 #include <iostream>
+#include "Item.h"
 
 using namespace std;
 
@@ -15,10 +16,13 @@ public:
 	Monster(string name, int level) : name(name), level(level), health(0), attack(0) {}
 	virtual ~Monster() = default;
 
-	virtual string getName() = 0;
+	//virtual string getName() = 0;
+	string getName() { return name; }
 	virtual int getHealth() = 0;
 	virtual int getAttack() = 0;
 	virtual void takeDamage(int damage) = 0;
+
+	Item* dropitem() { }
 
 	int randomBetween(int minVal, int maxVal) {
 		minVal *= level;
