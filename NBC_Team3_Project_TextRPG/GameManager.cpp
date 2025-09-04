@@ -2,7 +2,6 @@
 #include <string>
 #include "GameManager.h"
 #include "Character.h"
-#include "Windows.h"
 
 using namespace std;
 
@@ -13,7 +12,7 @@ Character* GameManager::MakeCharacter()
 	{
 		cout << "플레이어의 이름을 입력하세요." << endl;
 
-		cin >> name;
+		getline(cin, name);
 
 		if (cin.fail() || name == "")
 		{
@@ -22,10 +21,12 @@ Character* GameManager::MakeCharacter()
 			cin.ignore(10000, '\n');
 			continue;
 		}
+		break;	
 	}
 	return player->getInstance(name);
-}
 
+}
+/*
 void GameManager::ShopEnter()
 {
 	while (true) 
@@ -89,25 +90,24 @@ void GameManager::ShopEnter()
 
 
 }
+*/
+
 
 void GameManager::ShowCharacterInfo()
 {
-	system("cls");
 
 	cout << "플레이어 캐릭터 정보" << endl;
-	//cout << "플레이어 이름: " << player->getName() << endl;
-	cout << "레벨: " << /*player->getLevel()*/ 1 << endl;
-	cout << "체력: " << /*player->getHP()*/ 100 << endl;
-	cout << "공격력: " << /*player->getAttack()*/ 20 << endl;
-	cout << "경험치: " << /*player->getExp()*/ 0 << endl;
+	cout << "플레이어 이름: " << "" << endl;
+	cout << "레벨: " << player->getLevel() << " / 10" << endl;
+	cout << "체력: " << player->getHealth() << " / " << player->getMaxHealth() << endl;
+	cout << "공격력: " << player->getAttack() << endl;
+	cout << "경험치: " << player->getExperience() << " / 100" << endl;
 	
-	system("pause");
 	return;
 }
 
 /*void GameManager::ShowInventory()
 {
-	system("cls");
 
 	int index = 1;
 	if (Inventory->Items.empty()) 
@@ -129,7 +129,6 @@ void GameManager::ShowCharacterInfo()
 	}
 	cout << endl;
 	cout << "골드: " << Inventory.getGold() << endl;
-	system("pause");
 
 	return;
 }
@@ -137,7 +136,6 @@ void GameManager::ShowCharacterInfo()
 
 /*void GameManager::Battle()
 {
-	system("cls");
 
 	cout << "플레이어 체력: " << player->getHP() << " | 공격력: " << player->getAttack() << endl;
 	cout << "몬스터 체력: " << monster->getHP() << " | 공격력: " << monster->getAttack() << endl;
@@ -185,15 +183,14 @@ void GameManager::MainMenu()
 	{
 		player = MakeCharacter();
 	}
+	/*
 	if(monster == nullptr)
-	{
-		// monster = MonsterGeneration();
-	}
-
+{
+	// monster = MonsterGeneration();
+}
+	*/
 	while (/*player->getHP() != 0*/ true)
 	{
-		system("cls");
-
 		cout << "텍스트 기반 RPG 게임" << endl;
 		cout << "1. 전투하기" << endl;
 		cout << "2. 상점" << endl;
@@ -215,22 +212,21 @@ void GameManager::MainMenu()
 		}
 
 		cout << "\n---------------------------\n" << endl;
-
 		if (choice == 1)
 		{
-			Battle();
+			//Battle();
 		}
 		else if (choice == 2)
 		{
-			ShopEnter();
+			//ShopEnter();
 		}
-		else if (choice == 3)
+		if (choice == 3)
 		{
 			ShowCharacterInfo();
 		}
 		else if (choice == 4)
 		{
-			ShowInventory();
+			//ShowInventory();
 		}
 		else if (choice == 5)
 		{
