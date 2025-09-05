@@ -60,8 +60,8 @@ void GameManager::ShopEnter()
 
 		if (shopChoice == 1)
 		{
-			int index = -1;
-			while(index != 0)
+			int index = 0;
+			while(index != -1)
 			{
 				shop.displayItems();
 				cout << endl;
@@ -90,8 +90,8 @@ void GameManager::ShopEnter()
 		}
 		else if (shopChoice == 2)
 		{
-			int index = -1;
-			while(index != 0)
+			int index = 0;
+			while(index != -1)
 			{
 				player->displayInventory();
 				cout << endl;
