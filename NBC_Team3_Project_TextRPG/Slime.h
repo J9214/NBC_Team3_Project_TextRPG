@@ -1,15 +1,12 @@
-//Goblin.h
 #pragma once
 #include <iostream>
-#include <random>
 #include "Monster.h"
 
-class Goblin : public Monster {
-
+class Slime : public Monster {
 public:
-	Goblin(int level);
+	Slime(int level);
 	string getName() override { return name; }
 	int getHealth() override { return health; }
 	int getAttack() override { return attack; }
-	void takeDamage(int damage);
+	void takeDamage(int damage) override;
 };

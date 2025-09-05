@@ -1,15 +1,10 @@
 #pragma once
 //#include "BattleSystem.h"
 #include "Shop.h"
+#include "Battle_System.h"
 
 class Character;
-class BattleSystem;
 class Monster;
-/*
-
-	//BattleSystem battleSystem;
-	
-*/
 
 class GameManager
 {
@@ -17,18 +12,18 @@ private:
 	Character* player;
 	Monster* monster;
 	Shop shop;
+	BattleSystem battleSystem;
+	bool isClear;
 
 	Character* MakeCharacter();
 
-
-
 	void ShopEnter();
 	void ShowCharacterInfo();
-	//void ShowInventory();
+	void PlayBattle(bool spawnBoss);
 
-	void PlayBattle();
+
 public:
-	GameManager() : player(nullptr), monster(nullptr) {}
+	GameManager() : player(nullptr), monster(nullptr), isClear(false) {}
 	void PlayMainMenu();
 
 };
