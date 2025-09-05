@@ -36,6 +36,7 @@ void GameManager::ShopEnter()
 {
 	while (true) 
 	{
+		system("cls");
 		cout << "상점에 오신걸 환영합니다." << endl;
 
 		shop.displayItems();
@@ -63,7 +64,10 @@ void GameManager::ShopEnter()
 			int index = 0;
 			while(index != -1)
 			{
+				system("cls");
 				shop.displayItems();
+				player->displayInventory();
+
 				cout << endl;
 				cout << "현재 보유한 골드: " << player->getGold() << "G" << endl;
 				cout << endl;
@@ -84,7 +88,11 @@ void GameManager::ShopEnter()
 					break;
 				}
 				cout << endl;
+
 				shop.buyItem((index), player);
+
+				system("pause");
+
 			}
 
 		}
@@ -93,6 +101,7 @@ void GameManager::ShopEnter()
 			int index = 0;
 			while(index != -1)
 			{
+				system("cls");
 				player->displayInventory();
 				cout << endl;
 				cout << "현재 보유한 골드: " << player->getGold() << "G" << endl;
@@ -114,6 +123,7 @@ void GameManager::ShopEnter()
 					break;
 				}
 				shop.sellItem(index, player);
+				system("pause");
 			}
 		}
 		else if (shopChoice == 3)
@@ -153,7 +163,6 @@ void GameManager::PlayBattle(bool spawnBoss)
 	cout << "전투 개시!" <<endl;
 	cout << endl;
 
-	bool isTest = true;
 	while (player->getHealth() != 0 && monster->getHealth() != 0)
 	{
 		cout << "플레이어의 턴!" << endl;
@@ -164,28 +173,36 @@ void GameManager::PlayBattle(bool spawnBoss)
 		{
 			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
 			cout << "몬스터는 사망하였다." << endl;
+			cout << endl;
 			cout << "플레이어 승리! " << endl;
+			cout << endl;
 			if(spawnBoss == true)
 			{
 				isClear = true;
 				return;
 			}
 			battleSystem.reward(player);
+			cout << endl;
+			system("pause");
 			return;
 		}
 
 		cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
+		cout << endl;
 		cout << "몬스터의 턴!" << endl;
 
 		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
+
 		if(	battleSystem.monsterattack(monster, player) == true)
 		{
 			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
 			cout << "플레이어는 사망하였다." << endl;
+			cout << endl;
 			cout << "몬스터의 승리! " << endl;
 			return;
 		}
 		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
+		cout << endl;
 	}
 	
 	return;
@@ -238,18 +255,17 @@ void GameManager::PlayMainMenu()
 			if (monster == nullptr)
 			{
 				monster = battleSystem.generateMonster(player->getLevel());
-				cout << monster->getName() << endl;
 			}
 			PlayBattle(spawnBoss);
 			delete monster;
 			monster = nullptr;
 			cout << endl;
-			system("pause");
+
 			continue;
 		}
 		else if (choice == 2)
 		{
-			system("cls");
+
 			ShopEnter();
 			cout << endl;
 
@@ -276,6 +292,11 @@ void GameManager::PlayMainMenu()
 
 		cout << "\n---------------------------\n" << endl;
 
+	}
+
+	if (isClear == true)
+	{
+		cout << "축하합니다. " << player->getName() << "은 보스를 처치하고 게임을 클리어했습니다!" << endl;
 	}
 	return;
 }
