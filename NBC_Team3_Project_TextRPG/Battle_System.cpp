@@ -66,13 +66,17 @@ void BattleSystem::reward(Character* player) {  //보상
 	}
 	
 }
-void BattleSystem::useitem(Character* player) {
+bool BattleSystem::useitem(Character* player) {
 	
 	random_device rd;
 	int rd_useitem = rd()%100; 
 	if (rd_useitem < 30) { //아이템 사용 30확률  
-		player->useItem(0)  //인덱스0 아이템 사용
+		player->useItem(0);  //인덱스0 아이템 사용
+		return true;
 	}
+	
+		return false;
+	
 	
 }
 
