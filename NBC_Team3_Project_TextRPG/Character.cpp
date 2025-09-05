@@ -44,9 +44,9 @@ void Character::levelUp()
 	while (level < maxLevel && experience >= 100) {
 		level++;
 		experience -= 100;
-		maxHealth += maxHealth + (level * 20);
+		maxHealth += level * 20;
 		health = maxHealth;
-		attack += attack + (level * 5);
+		attack += level * 5;
 	}
 }
 
@@ -121,6 +121,9 @@ void Character::setExperience(int experience) { this->experience = experience; }
 void Character::setGold(int gold) { this->gold = gold; }
 void Character::setLevel(int level) { this->level = level; }
 
-Character::~Character()
-{
+Character::~Character() {
+	for (auto item : inventory) {
+		delete item;
+	}
+	inventory.clear();
 }
