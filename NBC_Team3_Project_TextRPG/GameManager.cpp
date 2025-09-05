@@ -3,6 +3,9 @@
 #include "GameManager.h"
 #include "Character.h"
 #include "Goblin.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
+
 
 Character* GameManager::MakeCharacter()
 {
@@ -26,6 +29,11 @@ Character* GameManager::MakeCharacter()
 
 }
 
+Monster* GameManager::generatedMonster(int level, bool isBoss)
+{
+	return new Goblin(level);
+}
+
 void GameManager::ShopEnter()
 {
 	while (true) 
@@ -34,7 +42,6 @@ void GameManager::ShopEnter()
 
 		shop.displayItems();
 		
-		player->setGold(100); //테스트용 골드 지급
 
 		cout << "1. 아이템을 구매합니다." << endl;
 		cout << "2. 아이템을 판매합니다." << endl;
@@ -58,7 +65,12 @@ void GameManager::ShopEnter()
 			int index = -1;
 			while(index != 0)
 			{
+				player->setGold(player->getGold() + 100); //테스트용 골드 지급
+
 				shop.displayItems();
+				cout << endl;
+				cout << "현재 보유한 골드: " << player->getGold() << "G" << endl;
+				cout << endl;
 				cout << "구매할 아이템 번호를 선택하세요: " << endl;
 				cout << "구매를 원치 않으신 경우 0을 입력하세요." << endl;
 				cout << "선택: ";
@@ -86,7 +98,9 @@ void GameManager::ShopEnter()
 			while(index != 0)
 			{
 				player->displayInventory();
+				cout << endl;
 				cout << "현재 보유한 골드: " << player->getGold() << "G" << endl;
+				cout << endl;
 				cout << "판매할 아이템 번호를 선택하세요: " << endl;
 				cout << "판매를 원치 않으신 경우 0을 입력하세요." << endl;
 				cout << "선택: ";
@@ -103,7 +117,7 @@ void GameManager::ShopEnter()
 				{
 					break;
 				}
-				//shop.sellItems(index, player);
+				shop.sellItem(index, player);
 			}
 		}
 		else if (shopChoice == 3)
@@ -136,10 +150,10 @@ void GameManager::ShowCharacterInfo()
 	return;
 }
 
-void GameManager::PlayBattle()
+void GameManager::PlayBattle(bool spawnBoss)
 {
-	cout << "플레이어 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
-	cout << "몬스터 체력: " << monster->getHealth() << " | 공격력: " << monster->getAttack() << endl;
+	cout << "플레이어 " << player->getName() << " 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
+	cout << "몬스터 " << monster->getName() << " 체력: " << monster->getHealth() << " | 공격력: " << monster->getAttack() << endl;
 	cout << "전투 개시!" <<endl;
 	cout << endl;
 
@@ -158,6 +172,11 @@ void GameManager::PlayBattle()
 			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
 			cout << "몬스터는 사망하였다." << endl;
 			cout << "플레이어 승리! " << endl;
+			if(spawnBoss == true)
+			{
+				isClear = true;
+				return;
+			}
 			if (player->getExperience() >= player->getMaxExperience())
 			{
 				player->levelUp();
@@ -184,17 +203,82 @@ void GameManager::PlayBattle()
 	
 	return;
 }
+/*
+void GameManager::TestBattle(bool spawnBoss)
+{
+	cout << "플레이어" << player->getName() << " 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
+	cout << "몬스터" << monster->getName() << " 체력: " << monster->getHealth() << " | 공격력: " << monster->getAttack() << endl;
+	cout << "전투 개시!" << endl;
+	cout << endl;
+
+	bool isTest = true;
+	while (player->getHealth() != 0 && monster->getHealth() != 0)
+	{
+		cout << "플레이어의 턴!" << endl;
+		if ( player->getInventorySize() != 0) // Item use;
+		{
+			cout << "플레이어는 아이템을 사용했다." << endl;
+			player->useItem(0); // Test
+		}
+
+		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
+		monster->takeDamage(player->getAttack());
+		if (monster->getHealth() == 0) // if hp = 0 return true;
+		{
+			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
+			cout << "몬스터는 사망하였다." << endl;
+			cout << "플레이어 승리! " << endl;
+			if (spawnBoss == true)
+			{
+				isClear = true;
+				return;
+			}
+			player->addItem(new HealthPotion()); // Test
+			if (player->getExperience() >= player->getMaxExperience())
+			{
+				player->levelUp();
+			}
+			//battlesystem.reward(player); // player exp, gold, item;
+			return;
+		}
+
+		cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
+		cout << "몬스터의 턴!" << endl;
+
+		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
+		if (	/*battlesystem.monsterattack(monster, player) isTest == true)
+		{
+			player->setHealth(0); // Test
+			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
+			cout << "플레이어는 사망하였다." << endl;
+			cout << "몬스터의 승리! " << endl;
+			return;
+		}
+		//test
+		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
+	}
+
+	return;
+}
+
+*/
 
 void GameManager::PlayMainMenu()
 {
+	bool spawnBoss = false;
 
 	if (player == nullptr)
 	{
 		player = MakeCharacter();
 	}
 
-	while (player->getHealth() != 0)
+	while (player->getHealth() != 0 && isClear == false)
 	{
+		if(player->getLevel() == player->getMaxLevel())
+		{
+			spawnBoss = true;
+		}
+
 		cout << "텍스트 기반 RPG 게임" << endl;
 		cout << "1. 전투하기" << endl;
 		cout << "2. 상점" << endl;
@@ -220,9 +304,10 @@ void GameManager::PlayMainMenu()
 		{
 			if (monster == nullptr)
 			{
-				monster = new Goblin(player->getLevel());
+				monster = generatedMonster(player->getLevel(), spawnBoss);
+				cout << monster->getName() << endl;
 			}
-			PlayBattle();
+			PlayBattle(spawnBoss);
 			delete monster;
 			monster = nullptr;
 			continue;

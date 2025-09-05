@@ -17,18 +17,19 @@ private:
 	Character* player;
 	Monster* monster;
 	Shop shop;
+	
+	bool isClear;
 
 	Character* MakeCharacter();
-
-
+	Monster* generatedMonster(int level, bool isBoss);
 
 	void ShopEnter();
 	void ShowCharacterInfo();
-	//void ShowInventory();
+	void PlayBattle(bool spawnBoss);
+	void TestBattle(bool spawnBoss);
 
-	void PlayBattle();
 public:
-	GameManager() : player(nullptr), monster(nullptr) {}
+	GameManager() : player(nullptr), monster(nullptr), isClear(false) {}
 	void PlayMainMenu();
 
 };
