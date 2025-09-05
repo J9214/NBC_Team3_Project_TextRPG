@@ -1,5 +1,7 @@
 #include "Battle_System.h"
-#include "iostream"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
+
 using namespace std;
 
 
@@ -43,20 +45,23 @@ void BattleSystem::reward(Character* player) {
 	random_device rd;
 	int rd_getitem = rd() % 100;
 	int rd_whichitem = rd() % 100;
-	int rd_getgold = 10+rd()%11
+	int rd_getgold = 10 + rd() % 11;
 	player->setExperience(50);
 	player->setGold( player->getGold()+ rd_goldget);
 	
 	
 	if (rd_whichitem < 50) {
 		if (rd_getitem < 30) {
-			player->addItem(Item * item);
+			HealthPotion* healthpotion = new HealthPotion();
+			player->addItem(healthpotion);
 		}
 	}
 
 	else {
+		
 		if (rd_getitem < 30) {
-			player->addItem(Item * item);
+			AttackBoost* attackboost = new AttackBoost();
+			player->addItem(attackboost);
 		}
 	}
 	
@@ -66,7 +71,7 @@ void BattleSystem::useitem(Character* player) {
 	random_device rd;
 	int rd_useitem = rd()%100; 
 	if (rd_useitem < 30) { //아이템 사용확률
-		player.useItem(0)  //인덱스0 아이템 사용
+		player->useItem(0)  //인덱스0 아이템 사용
 	}
 	
 }
