@@ -3,6 +3,7 @@
 Slime::Slime(int level) : Monster("Slime", level) { 
 	setHealth();
 	setAttack();
+
 }
 
 void Slime::takeDamage(int damage) {
