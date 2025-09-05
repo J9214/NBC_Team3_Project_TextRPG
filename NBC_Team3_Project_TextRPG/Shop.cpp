@@ -30,40 +30,48 @@ void Shop::displayItems()
 
 	for (size_t i = 0; i < LoopCount; ++i)
 	{
-		cout << i + 1 << ". " << availableItems[i]->getName() << "N" << "Gold" << endl;
+		cout << i + 1 << ". " << availableItems[i]->getName() << " " << availableItems[i]->getPrice() << " Gold" << endl;
 	}
 
-	cout << "=========================" << endl;
+	cout << "==========================" << endl;
 }
 
 void Shop::buyItem(int index, Character* player)
 {
 	// 예외 처리: 잘못된 번호 입력
-	if (index <= 0 || index >= static_cast<int>(availableItems.size()))
+	if (index < 0 || index > static_cast<int>(availableItems.size()))
 	{
 		cout << "잘못된 입력입니다." << endl;
 		return;
 	}
 
-	// 플레이어가 소지한 골드가 물건 가격 이상일 때 판매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	if (player->getGold() >= availableItems[index]->getPrice())
+	// 플레이어가 소지한 골드가 물건 가격 이상일 때 구매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
+	if (player->getGold() >= availableItems[index - 1]->getPrice())
 	{
-		player->setGold(player->getGold() - availableItems[index]->getPrice());
-		cout << availableItems[index]->getName() << "을 구매하였습니다." << endl;
+		player->setGold(player->getGold() - availableItems[index - 1]->getPrice());
+		cout << availableItems[index - 1]->getName() << "을 구매하였습니다." << endl;
+
+		// 인벤토리에 아이템 추가
+		player->addItem(availableItems[index - 1]);
 	}
 	else
 	{
-		cout << "아이템을 구매할 수 없습니다." << endl;
-	}	
+		cout << "소지한 골드가 부족하여 아이템을 구매할 수 없습니다." << endl;
+	}
 }
 
 void Shop::sellItem(int index, Character* player)
 {
-	// 플레이어 인벤토리 아이템 목록 출력
-	
-	// 플레이어 인벤토리에서 판매할 물건 선택
+	auto ItemToSell = player->getItem(index - 1);
 
-	// 원가 * 0.6 가격으로 판매
+	if (ItemToSell != nullptr)
+	{
+		// 플레이어 인벤토리에서 판매할 물건 선택 후 원가 * 0.6 가격으로 판매
+		player->setGold(player->getGold() + (ItemToSell->getPrice() * 6) / 10);
 
-	// 플레이어 인벤토리에서 판매한 아이템 삭제
+		// 플레이어 인벤토리에서 판매한 아이템 삭제
+		player->eraseItem(index - 1);
+	}
+
+	return;
 }
