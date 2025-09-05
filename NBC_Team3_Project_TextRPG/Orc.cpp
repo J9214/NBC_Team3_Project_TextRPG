@@ -8,8 +8,5 @@ Orc::Orc(int level) : Monster("Orc", level) {
 
 void Orc::takeDamage(int damage) {
 	health -= damage;
-	if (health < 0) {
-		health = 0;
-		dropitem();
-	}
+	if (health < 0) health = 0;
 }
