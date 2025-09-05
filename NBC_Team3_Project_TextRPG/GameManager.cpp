@@ -157,10 +157,7 @@ void GameManager::PlayBattle(bool spawnBoss)
 	while (player->getHealth() != 0 && monster->getHealth() != 0)
 	{
 		cout << "플레이어의 턴!" << endl;
-		if(	battleSystem.useitem(player) == true)
-		{
-			cout << "플레이어는 아이템을 사용했다." << endl;
-		}
+		battleSystem.useitem(player);
 
 		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
 		if(battleSystem.playerattack(monster, player) == true)
