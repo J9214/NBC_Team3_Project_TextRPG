@@ -28,10 +28,15 @@ void Character::displayStatus()
 	 cout << "Attack: " << attack << endl;
 	 cout << "Experience: " << experience << endl;
 	 cout << "Gold: " << gold << endl;
-	 cout << "Inventory: " << endl;
-	 for (size_t i = 0; i < inventory.size(); i++) {
-		 cout << i + 1 << ". " << inventory[i]->getName() << endl;
-	 }
+	 displayInventory();
+}
+
+void Character::displayInventory()
+{
+	cout << "Inventory: " << endl;
+	for (size_t i = 0; i < inventory.size(); i++) {
+		cout << i + 1 << ". " << inventory[i]->getName() << endl;
+	}
 }
 
 void Character::levelUp()
@@ -65,9 +70,28 @@ void Character::useItem(int index)
 	inventory.erase(inventory.begin() + index);
 }
 
-void Character::visitShop()
+void Character::addItem(Item* item)
 {
+	if(inventory.size() >= maxInventorySize) {
+		std::cout << "인벤토리가 가득 찼습니다." << std::endl;
+		return;
+	}
+	inventory.push_back(item);
+}
 
+void Character::eraseItem(int index)
+{
+	if (index < 0 || index >= inventory.size()) {
+		std::cout << "잘못된 인덱스입니다." << std::endl;
+		return;
+	}
+	Item* item = inventory[index];
+	if (item == nullptr) {
+		std::cout << "아이템이 없습니다." << std::endl;
+		return;
+	}
+	delete item;
+	inventory.erase(inventory.begin() + index);
 }
 
 string Character::getName() { return name; }
@@ -79,12 +103,22 @@ int Character::getMaxLevel() { return maxLevel; }
 int Character::getExperience() { return experience; }
 int Character::getMaxExperience() { return maxExperience; }
 int Character::getGold() { return gold; }
+int Character::getInventorySize() { return inventory.size(); }
+int Character::getMaxInventorySize() { return maxInventorySize; }
+Item* Character::getItem(int index) { 
+	if (index < 0 || index >= inventory.size()) 
+	{
+		std::cout << "잘못된 인덱스입니다." << std::endl;
+		return nullptr;
+	}
+	return inventory[index]; 
+}
 
 void Character::setHealth(int health) { this->health = health; }
 void Character::setMaxHealth(int health) { this->maxHealth = health; }
 void Character::setAttack(int attack) { this->attack = attack; }
 void Character::setExperience(int experience) { this->experience = experience; }
-void Character::setGold(int goldg) { this->gold = gold; }
+void Character::setGold(int gold) { this->gold = gold; }
 void Character::setLevel(int level) { this->level = level; }
 
 Character::~Character()

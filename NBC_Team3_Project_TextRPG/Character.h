@@ -16,6 +16,7 @@ private:
 	int experience;
 	int maxExperience = 100;
 	int gold;
+	int maxInventorySize = 10;
 
 	// Item 
 	std::vector<Item*> inventory;
@@ -36,7 +37,10 @@ public:
 	int getExperience();
 	int getMaxExperience();
 	int getGold();
-	
+	int getInventorySize();
+	int getMaxInventorySize();
+	Item* getItem(int index);
+
 	void setHealth(int health);
 	void setMaxHealth(int health);
 	void setAttack(int attack);
@@ -45,9 +49,11 @@ public:
 	void setLevel(int level) ;
 
 	void displayStatus();
+	void displayInventory();
 	void levelUp();
 	void useItem(int index);
-	void visitShop();
+	void addItem(Item* item);
+	void eraseItem(int index);
 
 	~Character();
 };

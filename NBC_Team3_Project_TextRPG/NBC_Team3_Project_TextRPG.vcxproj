@@ -138,8 +138,10 @@
     <ClCompile Include="Troll.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AttackBoost.h" />
     <ClInclude Include="BossMonster.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AttackBoost.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Goblin.h" />

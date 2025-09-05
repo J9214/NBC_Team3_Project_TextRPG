@@ -4,24 +4,31 @@
 
 class Character;
 class BattleSystem;
+class Monster;
 /*
-	Monster* monster;
+
 	//BattleSystem battleSystem;
-	Shop shop;
+	
 */
 
 class GameManager
 {
 private:
 	Character* player;
+	Monster* monster;
+	Shop shop;
+
 	Character* MakeCharacter();
-	//void ShopEnter();
+
+
+
+	void ShopEnter();
 	void ShowCharacterInfo();
 	//void ShowInventory();
 
-	//void Battle();
+	void PlayBattle();
 public:
-	GameManager() : player(nullptr) {}
-	void MainMenu();
+	GameManager() : player(nullptr), monster(nullptr) {}
+	void PlayMainMenu();
 
 };
