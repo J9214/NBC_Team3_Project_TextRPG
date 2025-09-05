@@ -1,7 +1,7 @@
 //Goblin.cpp
 #include "BossMonster.h"
 
-BossMonster::BossMonster(int level) : Monster("BossMonster", level) {
+BossMonster::BossMonster(int level) : Monster("Dragon", level) {
 	setHealth(1.5);
 	setAttack(1.5);
 }

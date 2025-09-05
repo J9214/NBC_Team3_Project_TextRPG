@@ -95,17 +95,17 @@ void BattleSystem::reward(Character* player) {  //보상
 	}
 
 }
-bool BattleSystem::useitem(Character* player) {
+void BattleSystem::useitem(Character* player) {
 
 	if (player->getInventorySize() == 0)
 	{
-		return false;
+		return;
 	}
 	random_device rd;
 	int rd_useitem = rd() % 100;
 	if (rd_useitem < 30) { //아이템 사용 30확률  
+		cout << "플레이어는 " << player->getItem(0)->getName() << "을 사용했다." << endl;
 		player->useItem(0);  //인덱스0 아이템 사용
-		return true;
 	}
-	return false;
+	return;
 }
