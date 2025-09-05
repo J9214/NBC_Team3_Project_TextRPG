@@ -60,23 +60,23 @@
     <ClInclude Include="Shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Goblin.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Orc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Troll.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Slime.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Troll.h">
+      <Filter>헤더 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
+      <Filter>헤더 파일\Monster</Filter>
     </ClInclude>
     <ClInclude Include="BossMonster.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Monster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +88,9 @@
     </Filter>
     <Filter Include="소스 파일\Monster">
       <UniqueIdentifier>{2fb52e0d-28f5-4869-a2b5-d84627e852c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Monster">
+      <UniqueIdentifier>{6a4bf23f-7ce9-4f22-ba5f-f2f257b813ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

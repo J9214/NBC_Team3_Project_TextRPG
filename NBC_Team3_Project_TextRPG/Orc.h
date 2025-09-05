@@ -6,7 +6,8 @@
 class Orc : public Monster {
 public:
 	Orc(int level);
-	int getHealth() override { return health; }
-	int getAttack() override { return attack; }
+	string getName() const override { return name; }
+	int getHealth() const override { return health; }
+	int getAttack() const override { return attack; }
 	void takeDamage(int damage) override;
 };

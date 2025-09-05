@@ -1,8 +1,8 @@
 #include "Slime.h"
 
-Slime::Slime(int level) : Monster("Slime", level) {
-	this->health = randomBetween(10, 20);   // Slime은 약함
-	this->attack = randomBetween(5, 10);    // 공격력 낮음
+Slime::Slime(int level) : Monster("Slime", level) { 
+	setHealth();
+	setAttack();
 }
 
 void Slime::takeDamage(int damage) {
