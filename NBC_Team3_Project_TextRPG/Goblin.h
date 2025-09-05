@@ -11,5 +11,6 @@ public:
 	string getName() override { return name; }
 	int getHealth() override { return health; }
 	int getAttack() override { return attack; }
+
 	void takeDamage(int damage);
 };

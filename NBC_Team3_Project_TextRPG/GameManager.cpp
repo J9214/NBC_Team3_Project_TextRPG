@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <Windows.h>
 #include "GameManager.h"
@@ -39,7 +39,7 @@ void GameManager::ShopEnter()
 		cout << "상점에 오신걸 환영합니다." << endl;
 
 		shop.displayItems();
-		
+
 
 		cout << "1. 아이템을 구매합니다." << endl;
 		cout << "2. 아이템을 판매합니다." << endl;
@@ -142,7 +142,7 @@ void GameManager::ShowCharacterInfo()
 	cout << "공격력: " << player->getAttack() << endl;
 	cout << "경험치: " << player->getExperience() << " / " << player->getMaxExperience() << endl;
 	*/
-	
+
 	return;
 }
 
@@ -190,7 +190,7 @@ void GameManager::PlayBattle(bool spawnBoss)
 		}
 		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
 	}
-	
+
 	return;
 }
 
@@ -234,7 +234,7 @@ void GameManager::PlayMainMenu()
 		}
 
 		cout << "\n---------------------------\n" << endl;
-	
+
 		if (choice == 1)
 		{
 			system("cls");
@@ -282,5 +282,4 @@ void GameManager::PlayMainMenu()
 	}
 	return;
 }
-
 
