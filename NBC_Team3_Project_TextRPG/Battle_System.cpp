@@ -34,24 +34,24 @@ Monster* BattleSystem::generateMonster(int level) {
 }
 
 
-void BattleSystem::playerattack(Monster* monster, Character* player) {
+void BattleSystem::playerattack(Monster* monster, Character* player) {   //플레이어가 몬스터 공격
 	monster->takeDamage(player->getAttack());
 }
-void BattleSystem::monsterattack(Monster* monster, Character* player) {
+void BattleSystem::monsterattack(Monster* monster, Character* player) { //몬스터가 플레이어 공격
 	player->setHealth(player->getHealth() - monster->getAttack());
 }
 
-void BattleSystem::reward(Character* player) {
+void BattleSystem::reward(Character* player) {  //보상
 	random_device rd;
-	int rd_getitem = rd() % 100;
+	int rd_getitem = rd() % 100; 
 	int rd_whichitem = rd() % 100;
-	int rd_getgold = 10 + rd() % 11;
+	int rd_getgold = 10 + rd() % 11; //골드 10~20
 	player->setExperience(50);
 	player->setGold( player->getGold()+ rd_goldget);
 	
 	
-	if (rd_whichitem < 50) {
-		if (rd_getitem < 30) {
+	if (rd_whichitem < 50) {  //어떤 아이템 체력?공격?
+		if (rd_getitem < 30) { //30퍼 확률 획득
 			HealthPotion* healthpotion = new HealthPotion();
 			player->addItem(healthpotion);
 		}
@@ -59,7 +59,7 @@ void BattleSystem::reward(Character* player) {
 
 	else {
 		
-		if (rd_getitem < 30) {
+		if (rd_getitem < 30) { //30퍼 확률 획득
 			AttackBoost* attackboost = new AttackBoost();
 			player->addItem(attackboost);
 		}
@@ -70,7 +70,7 @@ void BattleSystem::useitem(Character* player) {
 	
 	random_device rd;
 	int rd_useitem = rd()%100; 
-	if (rd_useitem < 30) { //아이템 사용확률
+	if (rd_useitem < 30) { //아이템 사용 30확률  
 		player->useItem(0)  //인덱스0 아이템 사용
 	}
 	
