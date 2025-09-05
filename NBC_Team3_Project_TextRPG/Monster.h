@@ -1,15 +1,14 @@
 //Monster.h
 #pragma once
 #include <iostream>
-#include "Item.h"
 
 using namespace std;
 
 class Monster {
-private:
-	int level;
+
 protected:
 	string name;
+	int level;
 	int health;
 	int attack;
 public:
@@ -36,7 +35,6 @@ public:
 		return nullptr;
 	}
 
-protected:
 	int randomBetween(int minVal, int maxVal) {
 		minVal *= level;
 		maxVal *= level;

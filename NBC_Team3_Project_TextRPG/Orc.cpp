@@ -3,6 +3,7 @@
 Orc::Orc(int level) : Monster("Orc", level) {
 	setHealth();
 	setAttack();
+
 }
 
 void Orc::takeDamage(int damage) {

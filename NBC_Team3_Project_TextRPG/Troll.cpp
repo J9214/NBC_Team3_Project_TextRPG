@@ -3,6 +3,7 @@
 Troll::Troll(int level) : Monster("Troll", level) { 
 	setHealth();
 	setAttack();
+
 }
 
 void Troll::takeDamage(int damage) {
