@@ -14,21 +14,20 @@ Character* GameManager::MakeCharacter()
 	while (player == nullptr)
 	{
 		cout << "플레이어의 이름을 입력하세요." << endl;
-
+		cout << "이름: ";
 		getline(cin, name);
 
-		if (cin.fail() || name == "")
+		if (cin.fail() || name.find_first_not_of(" \t") == string::npos)
 		{
 			cout << "log make player : 잘못된 입력입니다. 다시 입력해주세요." << endl;
 			cin.clear();
-			cin.ignore(10000, '\n');
+			cout << endl;
 			continue;
 		}
 		break;	
 	}
 
 	return Character::getInstance(name);
-
 }
 
 
@@ -183,6 +182,7 @@ void GameManager::PlayBattle(bool spawnBoss)
 			}
 			battleSystem.reward(player);
 			cout << endl;
+
 			system("pause");
 			return;
 		}
@@ -297,6 +297,11 @@ void GameManager::PlayMainMenu()
 	if (isClear == true)
 	{
 		cout << "축하합니다. " << player->getName() << "은 보스를 처치하고 게임을 클리어했습니다!" << endl;
+	}
+	else
+	{
+		cout << player->getName() << ", 당신은 몬스터와 처절한 전투 끝에 사망하고 말았습니다." << endl;
+
 	}
 	return;
 }
