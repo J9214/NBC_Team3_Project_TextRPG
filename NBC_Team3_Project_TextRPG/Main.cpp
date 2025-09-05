@@ -5,6 +5,6 @@ using namespace std;
 int main(void)
 {
 	GameManager gameManager;
-	gameManager.MainMenu();
+	gameManager.PlayMainMenu();
 	return 0;
 }

@@ -5,9 +5,7 @@
 #include "Monster.h"
 
 class Goblin : public Monster {
-private:
-	string name;
-	int G_level;
+
 public:
 	Goblin(int level);
 	string getName() override { return name; }

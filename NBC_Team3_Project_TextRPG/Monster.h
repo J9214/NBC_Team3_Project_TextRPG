@@ -5,10 +5,9 @@
 using namespace std;
 
 class Monster {
-private:
+protected:
 	string name;
 	int level;
-protected:
 	int health;
 	int attack;
 public:
