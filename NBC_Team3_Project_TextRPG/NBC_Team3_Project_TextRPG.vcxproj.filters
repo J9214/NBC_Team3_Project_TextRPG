@@ -22,23 +22,23 @@
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Orc.cpp">
-      <Filter>소스 파일\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Goblin.cpp">
-      <Filter>소스 파일\Monster</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Troll.cpp">
-      <Filter>소스 파일\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Slime.cpp">
-      <Filter>소스 파일\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>소스 파일\Monster</Filter>
+    <ClCompile Include="Battle_System.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="BossMonster.cpp">
-      <Filter>소스 파일\Monster</Filter>
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Orc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Troll.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,20 +63,23 @@
     <ClInclude Include="Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Orc.h">
-      <Filter>헤더 파일\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Slime.h">
-      <Filter>헤더 파일\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Troll.h">
-      <Filter>헤더 파일\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Goblin.h">
-      <Filter>헤더 파일\Monster</Filter>
+    <ClInclude Include="Battle_System.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BossMonster.h">
-      <Filter>헤더 파일\Monster</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Orc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Troll.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -85,12 +88,6 @@
     </Filter>
     <Filter Include="소스 파일">
       <UniqueIdentifier>{43b48ec9-eb40-41d4-a1bc-f0bd8bdd4674}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Monster">
-      <UniqueIdentifier>{2fb52e0d-28f5-4869-a2b5-d84627e852c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Monster">
-      <UniqueIdentifier>{6a4bf23f-7ce9-4f22-ba5f-f2f257b813ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

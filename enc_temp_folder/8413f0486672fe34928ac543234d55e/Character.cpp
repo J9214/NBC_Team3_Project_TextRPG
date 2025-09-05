@@ -114,10 +114,7 @@ Item* Character::getItem(int index) {
 	return inventory[index]; 
 }
 
-void Character::setHealth(int health) {
-	this->health = health;
-	if (this->health < 0) this->health = 0;
-}
+void Character::setHealth(int health) { this->health = health; }
 void Character::setMaxHealth(int health) { this->maxHealth = health; }
 void Character::setAttack(int attack) { this->attack = attack; }
 void Character::setExperience(int experience) { this->experience = experience; }
