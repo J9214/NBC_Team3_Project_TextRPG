@@ -60,9 +60,6 @@
     <ClInclude Include="Shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Goblin.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -76,6 +73,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Slime.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Troll.h">

@@ -2,8 +2,8 @@
 #include "BossMonster.h"
 
 BossMonster::BossMonster(int level) : Monster("BossMonster", level) {
-	//this->health = Monster::getHealth() * 1.5;
-	//this->attack = Monster::getAttack() * 1.5;
+	setHealth(1.5);
+	setAttack(1.5);
 }
 
 void BossMonster::takeDamage(int damage)
