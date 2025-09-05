@@ -1,8 +1,8 @@
 #include "Orc.h"
 
 Orc::Orc(int level) : Monster("Orc", level) {
-	this->health = randomBetween(50, 70);   // Orc´Â Goblinº¸´Ù Ã¼·ÂÀÌ ³ôÀ½
-	this->attack = randomBetween(15, 25);  // °ø°İ·Âµµ ´õ °­ÇÔ
+	this->health = randomBetween(50, 70);   // OrcëŠ” Goblinë³´ë‹¤ ì²´ë ¥ì´ ë†’ìŒ
+	this->attack = randomBetween(15, 25);  // ê³µê²©ë ¥ë„ ë” ê°•í•¨
 }
 
 void Orc::takeDamage(int damage) {

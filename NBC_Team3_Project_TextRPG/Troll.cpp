@@ -1,8 +1,8 @@
 #include "Troll.h"
 
 Troll::Troll(int level) : Monster("Troll", level) {
-	this->health = randomBetween(80, 120);   // TrollÀº Ã¼·Â °¡Àå ¸¹À½
-	this->attack = randomBetween(20, 30);    // °ø°İ·Âµµ °­ÇÔ
+	this->health = randomBetween(80, 120);   // Trollì€ ì²´ë ¥ ê°€ì¥ ë§ìŒ
+	this->attack = randomBetween(20, 30);    // ê³µê²©ë ¥ë„ ê°•í•¨
 }
 
 void Troll::takeDamage(int damage) {
