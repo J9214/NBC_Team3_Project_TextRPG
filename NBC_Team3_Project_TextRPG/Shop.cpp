@@ -45,6 +45,14 @@ void Shop::buyItem(int index, Character* player)
 		return;
 	}
 
+	// 예외 처리: 인벤토리가 꽉 찼는지 확인
+	bool CanBuyItem = player->getInventorySize() < player->getMaxInventorySize() ? true : false;
+	if (!CanBuyItem)
+	{
+		cout << "인벤토리가 가득 찼습니다." << endl;
+		return;
+	}
+
 	Item* ItemToBuy = nullptr;
 	if (dynamic_cast<HealthPotion*>(availableItems[index - 1]))
 	{
@@ -82,6 +90,4 @@ void Shop::sellItem(int index, Character* player)
 		// 플레이어 인벤토리에서 판매한 아이템 삭제
 		player->eraseItem(index - 1);
 	}
-
-	return;
 }
