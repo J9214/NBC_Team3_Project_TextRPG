@@ -2,7 +2,8 @@
 #include <iostream>
 #include "Monster.h"
 
-class BossMonster : public Monster {
+class BossMonster : public Monster
+{
 public:
 	// »ı¼ºÀÚ
 	BossMonster(int playerlevel);
