@@ -23,7 +23,7 @@ Shop::~Shop()
 	availableItems.clear();
 }
 
-void Shop::displayItems() const
+void Shop::DisplayItems() const
 {
 	cout << "========== 상점 ==========\n" << endl;
 
@@ -37,7 +37,7 @@ void Shop::displayItems() const
 	cout << "\n==========================\n" << endl;
 }
 
-void Shop::buyItem(int index, Character* player) const
+void Shop::BuyItem(int index, Character* player) const
 {
 	// 예외 처리: 잘못된 번호 입력
 	if (index < 0 || index > static_cast<int>(availableItems.size()))
@@ -70,7 +70,7 @@ void Shop::buyItem(int index, Character* player) const
 	}
 }
 
-void Shop::sellItem(int index, Character* player) const
+void Shop::SellItem(int index, Character* player) const
 {
 	auto ItemToSell = player->getItem(index - 1);
 
