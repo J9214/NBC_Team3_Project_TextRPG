@@ -6,17 +6,17 @@ Monster::Monster(string monsterName, int playerlevel)
 	: name(monsterName), level(playerlevel), health(0), attack(0)
 {}
 
-void Monster::setHealth(float multiply) 
+void Monster::SetHealth(float multiply) 
 {
-	health = static_cast<int>(static_cast<float>(randomBetween(20, 30)) * multiply);
+	health = static_cast<int>(static_cast<float>(RandomBetween(20, 30)) * multiply);
 }
 
-void Monster::setAttack(float multiply) 
+void Monster::SetAttack(float multiply) 
 {
-	attack = static_cast<int>(static_cast<float>(randomBetween(5, 10)) * multiply);
+	attack = static_cast<int>(static_cast<float>(RandomBetween(5, 10)) * multiply);
 }
 
-int Monster::randomBetween(int minVal, int maxVal) 
+int Monster::RandomBetween(int minVal, int maxVal) 
 {
 	minVal *= level;
 	maxVal *= level;

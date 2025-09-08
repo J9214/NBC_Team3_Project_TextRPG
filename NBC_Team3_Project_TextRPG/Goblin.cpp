@@ -4,11 +4,11 @@
 Goblin::Goblin(int playerlevel) 
 	: Monster("Goblin", playerlevel)
 { 
-	setHealth();
-	setAttack();
+	SetHealth();
+	SetAttack();
 }
 
-void Goblin::takeDamage(int damage) 
+void Goblin::TakeDamage(int damage) 
 {
 	health -= damage;
 	if (health < 0) 
