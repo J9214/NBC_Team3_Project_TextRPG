@@ -1,4 +1,6 @@
 #include "Monster.h"
+#include "HealthPotion.h"
+#include "AttackBoost.h"
 
 Monster::Monster(string name, int level) : name(name), level(level), health(0), attack(0) {}
 
