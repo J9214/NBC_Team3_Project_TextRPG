@@ -34,11 +34,24 @@ Monster* BattleSystem::generateMonster(int level) {
 }
 
 
-void BattleSystem::playerattack(Monster* monster, Character* player) {   //플레이어가 몬스터 공격
-	monster->takeDamage(player->getAttack());
+bool BattleSystem::playerattack(Monster* monster, Character* player) {   //플레이어가 몬스터 공격
+	if (monster->getHealth != 0)
+	{
+		monster->takeDamage(player->getAttack());
+		return true;
+	}
+	else {
+		return false;
+	}
 }
-void BattleSystem::monsterattack(Monster* monster, Character* player) { //몬스터가 플레이어 공격
-	player->setHealth(player->getHealth() - monster->getAttack());
+bool BattleSystem::monsterattack(Monster* monster, Character* player) { //몬스터가 플레이어 공격
+	if (player->getHealth != 0) {
+		player->setHealth(player->getHealth() - monster->getAttack());
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 void BattleSystem::reward(Character* player) {  //보상
