@@ -24,7 +24,7 @@ Shop::~Shop()
 
 void Shop::displayItems()
 {
-	cout << "========== 상점 ==========" << endl;
+	cout << "========== 상점 ==========\n" << endl;
 
 	size_t LoopCount = availableItems.size();
 
@@ -33,7 +33,7 @@ void Shop::displayItems()
 		cout << i + 1 << ". " << availableItems[i]->getName() << " " << availableItems[i]->getPrice() << " Gold" << endl;
 	}
 
-	cout << "==========================" << endl;
+	cout << "\n==========================\n" << endl;
 }
 
 void Shop::buyItem(int index, Character* player)
@@ -45,25 +45,16 @@ void Shop::buyItem(int index, Character* player)
 		return;
 	}
 
-	// 예외 처리: 인벤토리가 꽉 찼는지 확인
-	bool CanBuyItem = player->getInventorySize() < player->getMaxInventorySize() ? true : false;
-	if (!CanBuyItem)
+	// 예외 처리: 인벤토리가 꽉 찼는지 확인	
+	if (player->getInventorySize() >= player->getMaxInventorySize())
 	{
 		cout << "인벤토리가 가득 찼습니다." << endl;
 		return;
 	}
 
-	Item* ItemToBuy = availableItems[index - 1]->clone();
-	/*if (dynamic_cast<HealthPotion*>(availableItems[index - 1]))
-	{
-		ItemToBuy = new HealthPotion();
-	}
-	else
-	{
-		ItemToBuy = new AttackBoost();
-	}*/	
-
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 구매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
+	Item* ItemToBuy = availableItems[index - 1]->clone();
+	
 	if (player->getGold() >= ItemToBuy->getPrice())
 	{
 		player->setGold(player->getGold() - ItemToBuy->getPrice());
@@ -89,5 +80,6 @@ void Shop::sellItem(int index, Character* player)
 
 		// 플레이어 인벤토리에서 판매한 아이템 삭제
 		player->eraseItem(index - 1);
+		cout << "판매 완료" << endl;
 	}
 }
