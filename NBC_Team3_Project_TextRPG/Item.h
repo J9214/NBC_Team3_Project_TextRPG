@@ -15,8 +15,8 @@ public:
 	Item(std::string name, int price);
 	virtual ~Item() = default;
 
-	std::string getName() const;
-	int getPrice() const;
-	virtual void use(Character* character) = 0;
-	virtual Item* clone() = 0;
+	std::string GetName() const;
+	int GetPrice() const;
+	virtual void Use(Character* character) = 0;
+	virtual Item* Clone() = 0;
 };
