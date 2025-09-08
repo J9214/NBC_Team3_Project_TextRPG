@@ -54,10 +54,10 @@ void Shop::BuyItem(int index, Character* player) const
 	}
 
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 구매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	Item* ItemToBuy = availableItems[index - 1]->Clone();
 	
-	if (player->GetGold() >= ItemToBuy->GetPrice())
+	if (player->GetGold() >= availableItems[index - 1]->GetPrice())
 	{
+		Item* ItemToBuy = availableItems[index - 1]->Clone();
 		player->SetGold(player->GetGold() - ItemToBuy->GetPrice());
 		cout << ItemToBuy->GetName() << "을 구매하였습니다." << endl;
 
