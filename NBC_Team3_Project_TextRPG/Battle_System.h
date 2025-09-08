@@ -5,7 +5,8 @@
 #include "Character.h" 
 
 
-class BattleSystem {
+class BattleSystem 
+{
 public:
 	Monster* GenerateMonster(int level);
 	bool PlayerAttack(Monster* monster, Character* player);
