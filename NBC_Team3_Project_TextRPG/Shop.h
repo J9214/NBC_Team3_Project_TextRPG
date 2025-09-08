@@ -16,7 +16,7 @@ public:
 	Shop();
 	~Shop();
 
-	void displayItems();
-	void buyItem(int index, Character* player);
-	void sellItem(int index, Character* player);
+	void displayItems() const;
+	void buyItem(int index, Character* player) const;
+	void sellItem(int index, Character* player) const;
 };
