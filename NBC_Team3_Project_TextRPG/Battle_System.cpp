@@ -35,7 +35,7 @@ Monster* BattleSystem::generateMonster(int level) {
 
 
 bool BattleSystem::playerattack(Monster* monster, Character* player) {   //플레이어가 몬스터 공격
-	if (monster->getHealth != 0)
+	if (monster->getHealth > 0)
 	{
 		monster->takeDamage(player->getAttack());
 		return true;
@@ -45,7 +45,7 @@ bool BattleSystem::playerattack(Monster* monster, Character* player) {   //플레�
 	}
 }
 bool BattleSystem::monsterattack(Monster* monster, Character* player) { //몬스터가 플레이어 공격
-	if (player->getHealth != 0) {
+	if (player->getHealth > 0) {
 		player->setHealth(player->getHealth() - monster->getAttack());
 		return true;
 	}
