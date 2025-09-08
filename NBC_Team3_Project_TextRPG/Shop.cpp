@@ -53,15 +53,15 @@ void Shop::buyItem(int index, Character* player)
 		return;
 	}
 
-	Item* ItemToBuy = nullptr;
-	if (dynamic_cast<HealthPotion*>(availableItems[index - 1]))
+	Item* ItemToBuy = availableItems[index - 1]->clone();
+	/*if (dynamic_cast<HealthPotion*>(availableItems[index - 1]))
 	{
 		ItemToBuy = new HealthPotion();
 	}
 	else
 	{
 		ItemToBuy = new AttackBoost();
-	}	
+	}*/	
 
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 구매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
 	if (player->getGold() >= ItemToBuy->getPrice())

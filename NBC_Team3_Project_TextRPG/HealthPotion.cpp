@@ -13,3 +13,8 @@ void HealthPotion::use(Character * character)
 	int hp = min(character->getMaxHealth(), character->getHealth() + healthRestore);
 	character->setHealth(hp);
 }
+
+Item* HealthPotion::clone()
+{
+	return new HealthPotion(*this);
+}
