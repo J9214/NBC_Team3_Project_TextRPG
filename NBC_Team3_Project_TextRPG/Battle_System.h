@@ -5,13 +5,14 @@
 #include "Character.h" 
 
 
-class BattleSystem {
+class BattleSystem 
+{
 public:
-	Monster* generateMonster(int level);
-	bool playerattack(Monster* monster, Character* player);
-	bool monsterattack(Monster* monster, Character* player);
-	void reward(Character* player);
-	void useitem(Character* player);
+	Monster* GenerateMonster(int level);
+	bool PlayerAttack(Monster* monster, Character* player);
+	bool MonsterAttack(Monster* monster, Character* player);
+	void Reward(Character* player);
+	void UseItem(Character* player);
 	
 };
 
