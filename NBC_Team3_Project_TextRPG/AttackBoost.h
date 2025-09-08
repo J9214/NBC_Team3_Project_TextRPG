@@ -9,5 +9,6 @@ private:
 
 public:
 	AttackBoost();
-	void use(Character* character) override;
+	void Use(Character* character) override;
+	Item* Clone() override;
 };

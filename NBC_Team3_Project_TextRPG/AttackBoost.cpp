@@ -7,7 +7,12 @@ AttackBoost::AttackBoost() :
 	attackIncrease(10)
 {}
 
-void AttackBoost::use(Character* character)
+void AttackBoost::Use(Character* character)
 {
-	character->setAttack(character->getAttack() + attackIncrease);
+	character->SetAttack(character->GetAttack() + attackIncrease);
+}
+
+Item* AttackBoost::Clone()
+{
+	return new AttackBoost(*this);
 }

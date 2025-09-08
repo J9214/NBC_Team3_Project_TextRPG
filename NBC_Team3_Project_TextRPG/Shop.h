@@ -2,21 +2,19 @@
 
 #include <vector>
 
-using namespace std;
-
 class Item;
 class Character;
 
 class Shop
 {
 private:
-	vector<Item*> availableItems;
+	std::vector<Item*> availableItems;
 
 public:
 	Shop();
 	~Shop();
 
-	void displayItems();
-	void buyItem(int index, Character* player);
-	void sellItem(int index, Character* player);
+	void DisplayItems() const;
+	void BuyItem(int index, Character* player) const;
+	void SellItem(int index, Character* player) const;
 };

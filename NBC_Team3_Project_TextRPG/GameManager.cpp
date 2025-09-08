@@ -24,7 +24,7 @@ Character* GameManager::MakeCharacter()
 			cout << endl;
 			continue;
 		}
-		break;
+		break;	
 	}
 
 	return Character::getInstance(name);
@@ -33,13 +33,13 @@ Character* GameManager::MakeCharacter()
 
 void GameManager::ShopEnter()
 {
-	while (true)
+	while (true) 
 	{
 		system("cls");
 		cout << "상점에 오신걸 환영합니다." << endl;
 
 		shop.displayItems();
-
+		
 
 		cout << "1. 아이템을 구매합니다." << endl;
 		cout << "2. 아이템을 판매합니다." << endl;
@@ -61,7 +61,7 @@ void GameManager::ShopEnter()
 		if (shopChoice == 1)
 		{
 			int index = 0;
-			while (index != -1)
+			while(index != -1)
 			{
 				system("cls");
 				shop.displayItems();
@@ -98,7 +98,7 @@ void GameManager::ShopEnter()
 		else if (shopChoice == 2)
 		{
 			int index = 0;
-			while (index != -1)
+			while(index != -1)
 			{
 				system("cls");
 				player->displayInventory();
@@ -151,7 +151,7 @@ void GameManager::ShowCharacterInfo()
 	cout << "공격력: " << player->getAttack() << endl;
 	cout << "경험치: " << player->getExperience() << " / " << player->getMaxExperience() << endl;
 	*/
-
+	
 	return;
 }
 
@@ -159,23 +159,23 @@ void GameManager::PlayBattle(bool spawnBoss)
 {
 	cout << "플레이어 " << player->getName() << " 체력: " << player->getHealth() << " | 공격력: " << player->getAttack() << endl;
 	cout << "몬스터 " << monster->getName() << " 체력: " << monster->getHealth() << " | 공격력: " << monster->getAttack() << endl;
-	cout << "전투 개시!" << endl;
+	cout << "전투 개시!" <<endl;
 	cout << endl;
 
 	while (player->getHealth() != 0 && monster->getHealth() != 0)
 	{
-		cout << "플레이어의 턴!" << endl;
+		cout << "플레이어 " << player->getName() << "의 턴!" << endl;
 		battleSystem.useitem(player);
 
-		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
-		if (battleSystem.playerattack(monster, player) == true)
+		cout << "플레이어 " << player->getName() << "은(는) 몬스터 " << monster->getName() << "에게 " << player->getAttack() << " 데미지를 주었다" << endl;
+		if(battleSystem.playerattack(monster, player) == true)
 		{
-			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
-			cout << "몬스터는 사망하였다." << endl;
+			cout << "몬스터 " << monster->getName() << "의 남은 체력: " << monster->getHealth() << endl;
+			cout << "몬스터 " << monster->getName() << "은(는) 사망하였다." << endl;
 			cout << endl;
-			cout << "플레이어 승리! " << endl;
+			cout << "플레이어 " << player->getName() << " 승리! " << endl;
 			cout << endl;
-			if (spawnBoss == true)
+			if(spawnBoss == true)
 			{
 				isClear = true;
 				return;
@@ -187,24 +187,24 @@ void GameManager::PlayBattle(bool spawnBoss)
 			return;
 		}
 
-		cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
+		cout << "몬스터 " << monster->getName() << "의 남은 체력: " << monster->getHealth() << endl;
 		cout << endl;
-		cout << "몬스터의 턴!" << endl;
+		cout << "몬스터 " << monster->getName() << "의 턴!" << endl;
 
-		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
+		cout << "몬스터 " << monster->getName() << "은(는) 플레이어 " << player->getName() << "에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
 
-		if (battleSystem.monsterattack(monster, player) == true)
+		if(	battleSystem.monsterattack(monster, player) == true)
 		{
-			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
-			cout << "플레이어는 사망하였다." << endl;
+			cout << "플레이어 " << player->getName() << "의 남은 체력: " << player->getHealth() << endl;
+			cout << "플레이어 " << player->getName() << "은(는) 사망하였다." << endl;
 			cout << endl;
-			cout << "몬스터의 승리! " << endl;
+			cout << "몬스터 " << monster->getName() << "의 승리! " << endl;
 			return;
 		}
-		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
+		cout << "플레이어 " << player->getName() << "의 남은 체력: " << player->getHealth() << endl;
 		cout << endl;
 	}
-
+	
 	return;
 }
 
@@ -223,7 +223,7 @@ void GameManager::PlayMainMenu()
 		system("cls");
 
 		cout << endl;
-		if (player->getLevel() == player->getMaxLevel())
+		if(player->getLevel() == player->getMaxLevel())
 		{
 			spawnBoss = true;
 		}
@@ -248,7 +248,7 @@ void GameManager::PlayMainMenu()
 		}
 
 		cout << "\n---------------------------\n" << endl;
-
+	
 		if (choice == 1)
 		{
 			system("cls");
@@ -305,3 +305,5 @@ void GameManager::PlayMainMenu()
 	}
 	return;
 }
+
+
