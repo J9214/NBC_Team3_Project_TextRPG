@@ -59,9 +59,9 @@ bool BattleSystem::MonsterAttack(Monster* monster, Character* player)
 void BattleSystem::Reward(Character* player) 
 {  
 	std::random_device rd;
-	int rd_getitem = rd() % 100;
-	int rd_whichitem = rd() % 100;
-	int rd_getgold = 10 + rd() % 11; 
+	int rd_GetItem = rd() % 100;
+	int rd_WhichItem = rd() % 100;
+	int rd_GetGold = 10 + rd() % 11; 
 
 	std::cout << "플레이어 " << player->GetName() << "은(는) 50의 경험치를 획득하였다." << std::endl;
 
@@ -74,13 +74,13 @@ void BattleSystem::Reward(Character* player)
 		std::cout << "플레이어 " << player->GetName() << "의 현재 레벨: " << player->GetLevel() << std::endl;
 
 	}
-	std::cout << "플레이어 " << player->GetName() << "은(는) " << rd_getgold << "골드를 획득하였다." << std::endl;
-	player->SetGold(player->GetGold() + rd_getgold);
+	std::cout << "플레이어 " << player->GetName() << "은(는) " << rd_GetGold << "골드를 획득하였다." << std::endl;
+	player->SetGold(player->GetGold() + rd_GetGold);
 	std::cout << "플레이어 " << player->GetName() << "의 현재 골드: " << player->GetGold() << std::endl;
 
-	if (rd_whichitem < 50) 
+	if (rd_WhichItem < 50) 
 	{  
-		if (rd_getitem < 30) 
+		if (rd_GetItem < 30) 
 		{ 
 
 			std::cout << "플레이어 " << player->GetName() << "은(는) 체력 포션을 획득하였다." << std::endl;
@@ -91,7 +91,7 @@ void BattleSystem::Reward(Character* player)
 	else 
 	{
 
-		if (rd_getitem < 30) 
+		if (rd_GetItem < 30) 
 		{ 
 			std::cout << "플레이어 " << player->GetName() << "은(는) 공격력 증가 포션을 획득하였다." << std::endl;
 			player->AddItem(new AttackBoost());
@@ -107,8 +107,8 @@ void BattleSystem::UseItem(Character* player)
 		return;
 	}
 	std::random_device rd;
-	int rd_useitem = rd() % 100;
-	if (rd_useitem < 30) 
+	int rd_UseItem = rd() % 100;
+	if (rd_UseItem < 30) 
 	{  
 		std::cout << "플레이어 " << player->GetName() << "은(는) " << player->GetItem(0)->GetName() << "을 사용했다." << std::endl;
 		player->UseItem(0);  //인덱스0 아이템 사용
