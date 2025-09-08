@@ -1,12 +1,11 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
 #include "Item.h"
 
-class Character {
+class Character
+{
 private:
-	//static Character* Instance();
-
 	std::string name;
 	int maxLevel = 10;
 	int level;

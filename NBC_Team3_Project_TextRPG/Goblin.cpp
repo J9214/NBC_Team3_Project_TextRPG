@@ -1,18 +1,8 @@
-//Goblin.cpp
-#include "Goblin.h"
+﻿#include "Goblin.h"
 
-Goblin::Goblin(int playerlevel) 
-	: Monster("Goblin", playerlevel)
+Goblin::Goblin(int playerLevel)
+	: Monster("Goblin", playerLevel)
 { 
 	SetHealth();
 	SetAttack();
-}
-
-void Goblin::TakeDamage(int damage) 
-{
-	health -= damage;
-	if (health < 0) 
-	{
-		health = 0;
-	}
 }

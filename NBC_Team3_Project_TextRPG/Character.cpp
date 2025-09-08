@@ -3,15 +3,15 @@
 using namespace std;
 
 Character::Character(std::string name)
+	: name(name),
+	level(1),
+	maxHealth(200),
+	health(200),
+	attack(30),
+	experience(0),
+	gold(0),
+	inventory()
 {
-	this->name = name;
-	this->level = 1;
-	this->maxHealth = 200; 
-	this->health = this->maxHealth;
-	this->attack = 30;
-	this->experience = 0;
-	this->gold = 0;
-	this->inventory = {};
 }
 
 Character* Character::GetInstance(std::string name)
@@ -91,6 +91,7 @@ void Character::EraseItem(int index)
 		std::cout << "잘못된 인덱스입니다." << std::endl;
 		return;
 	}
+
 	Item* item = inventory[index];
 	if (item == nullptr) 
 	{
@@ -98,6 +99,7 @@ void Character::EraseItem(int index)
 		return;
 	}
 	delete item;
+
 	inventory.erase(inventory.begin() + index);
 }
 
@@ -105,46 +107,57 @@ string Character::GetName() const
 { 
 	return name; 
 }
+
 int Character::GetHealth() const 
 { 
 	return health; 
 }
+
 int Character::GetMaxHealth() const 
 { 
 	return maxHealth; 
 }
+
 int Character::GetAttack() const 
 { 
 	return attack; 
 }
+
 int Character::GetLevel() const 
 { 
 	return level; 
 }
+
 int Character::GetMaxLevel() const 
 { 
 	return maxLevel; 
 }
+
 int Character::GetExperience() const 
 { 
 	return experience; 
 }
+
 int Character::GetMaxExperience() const 
 { 
 	return maxExperience; 
 }
+
 int Character::GetGold() const 
 { 
 	return gold; 
 }
+
 int Character::GetInventorySize() const 
 { 
 	return inventory.size(); 
 }
+
 int Character::GetMaxInventorySize() const 
 { 
 	return maxInventorySize; 
 }
+
 Item* Character::GetItem(int index) const 
 { 
 	if (index < 0 || index >= inventory.size()) 
@@ -167,22 +180,27 @@ void Character::SetHealth(int health)
 		this->health = this->maxHealth;
 	}
 }
+
 void Character::SetMaxHealth(int health) 
 { 
 	this->maxHealth = health; 
 }
+
 void Character::SetAttack(int attack) 
 { 
 	this->attack = attack; 
 }
+
 void Character::SetExperience(int experience) 
 { 
 	this->experience = experience; 
 }
+
 void Character::SetGold(int gold) 
 { 
 	this->gold = gold; 
 }
+
 void Character::SetLevel(int level) 
 { 
 	this->level = level; 

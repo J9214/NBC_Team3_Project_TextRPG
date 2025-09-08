@@ -6,8 +6,16 @@
 #include "Goblin.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
-
 using namespace std;
+
+GameManager::GameManager()
+	: player(nullptr),
+	gameMonster(nullptr),
+	isClear(false),
+	spawnBoss(false)
+{
+}
+
 Character* GameManager::MakeCharacter()
 {
 	string Name;
@@ -33,7 +41,6 @@ Character* GameManager::MakeCharacter()
 
 	return Character::GetInstance(Name);
 }
-
 
 void GameManager::ShopEnter()
 {
@@ -160,7 +167,6 @@ void GameManager::ShopEnter()
 void GameManager::ShowCharacterInfo()
 {
 	player->DisplayStatus();
-
 	return;
 }
 
@@ -223,8 +229,6 @@ void GameManager::PlayBattle()
 
 void GameManager::PlayMainMenu()
 {
-	
-
 	if (player == nullptr)
 	{
 		player = MakeCharacter();
@@ -325,5 +329,3 @@ void GameManager::PlayMainMenu()
 
 	return;
 }
-
-

@@ -1,9 +1,6 @@
-#pragma once
-#include <iostream>
-#include <random>
+﻿#pragma once
 #include "Monster.h"     
 #include "Character.h" 
-
 
 class BattleSystem 
 {
@@ -13,7 +10,4 @@ public:
 	bool MonsterAttack(Monster* monster, Character* player);
 	void Reward(Character* player);
 	void UseItem(Character* player);
-	
 };
-
-

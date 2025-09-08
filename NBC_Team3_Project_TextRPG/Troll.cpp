@@ -1,18 +1,9 @@
-#include "Troll.h"
+﻿#include "Troll.h"
+using namespace std;
 
-Troll::Troll(int playerlevel)
-	: Monster("Troll", playerlevel)
+Troll::Troll(int playerLevel)
+	: Monster("Troll", playerLevel)
 { 
 	SetHealth();
 	SetAttack();
-
-}
-
-void Troll::TakeDamage(int damage) 
-{
-	health -= damage;
-	if (health < 0) 
-	{
-		health = 0;
-	}
 }

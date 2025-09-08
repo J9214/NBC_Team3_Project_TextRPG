@@ -1,10 +1,40 @@
-#include "Monster.h"
+﻿#include "Monster.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
+#include <random>
+using namespace std;
 
-Monster::Monster(string monsterName, int playerlevel)
-	: name(monsterName), level(playerlevel), health(0), attack(0)
-{}
+Monster::Monster(string monsterName, int playerLevel)
+	: name(monsterName),
+	level(playerLevel),
+	health(0),
+	attack(0)
+{
+}
+
+string Monster::GetName() const
+{
+	return name;
+}
+
+int Monster::GetHealth() const
+{
+	return health;
+}
+
+int Monster::GetAttack() const
+{
+	return attack;
+}
+
+void Monster::TakeDamage(int damage)
+{
+	health -= damage;
+	if (health < 0)
+	{
+		health = 0;
+	}
+}
 
 void Monster::SetHealth(float multiply) 
 {

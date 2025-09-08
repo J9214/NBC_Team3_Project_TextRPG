@@ -1,7 +1,6 @@
-#pragma once
-//손우참 
+﻿#pragma once
 #include "Shop.h"
-#include "Battle_System.h"
+#include "BattleSystem.h"
 
 class Character;
 class Monster;
@@ -21,9 +20,7 @@ private:
 	void ShowCharacterInfo();
 	void PlayBattle();
 
-
 public:
-	GameManager() : player(nullptr), gameMonster(nullptr), isClear(false), spawnBoss(false){}
+	GameManager();
 	void PlayMainMenu();
-
 };
