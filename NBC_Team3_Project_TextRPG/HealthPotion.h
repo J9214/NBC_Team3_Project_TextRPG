@@ -9,6 +9,6 @@ private:
 
 public:
 	HealthPotion();
-	void use(Character* character) override;
-	Item* clone() override;
+	void Use(Character* character) override;
+	Item* Clone() override;
 };

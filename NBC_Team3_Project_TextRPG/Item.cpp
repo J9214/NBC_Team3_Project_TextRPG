@@ -7,12 +7,12 @@ Item::Item(const Item& other) : name(other.name), price(other.price) {};
 
 Item::Item(string name, int price) : name(name), price(price) {}
 
-string Item::getName() const
+string Item::GetName() const
 {
 	return name;
 }
 
-int Item::getPrice() const
+int Item::GetPrice() const
 {
 	return price;
 }
