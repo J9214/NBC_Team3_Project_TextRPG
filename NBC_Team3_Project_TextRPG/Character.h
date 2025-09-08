@@ -28,18 +28,18 @@ public:
 	Character(std::string name);
 	static Character* getInstance(std::string name);
 
-	std::string getName();
-	int getHealth();
-	int getMaxHealth();
-	int getAttack();
-	int getLevel();
-	int getMaxLevel();
-	int getExperience();
-	int getMaxExperience();
-	int getGold();
-	int getInventorySize();
-	int getMaxInventorySize();
-	Item* getItem(int index);
+	std::string getName() const;
+	int getHealth() const;
+	int getMaxHealth() const;
+	int getAttack() const;
+	int getLevel() const;
+	int getMaxLevel() const;
+	int getExperience() const;
+	int getMaxExperience() const;
+	int getGold() const;
+	int getInventorySize() const;
+	int getMaxInventorySize() const;
+	Item* getItem(int index) const;
 
 	void setHealth(int health);
 	void setMaxHealth(int health);
