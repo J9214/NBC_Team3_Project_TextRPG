@@ -11,3 +11,8 @@ void AttackBoost::use(Character* character)
 {
 	character->setAttack(character->getAttack() + attackIncrease);
 }
+
+Item* AttackBoost::clone()
+{
+	return new AttackBoost(*this);
+}

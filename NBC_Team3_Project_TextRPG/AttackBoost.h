@@ -10,4 +10,5 @@ private:
 public:
 	AttackBoost();
 	void use(Character* character) override;
+	Item* clone() override;
 };
