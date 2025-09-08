@@ -14,16 +14,16 @@ private:
 	Shop GameShop;
 	BattleSystem GameBattleSystem;
 	bool IsClear;
-
+	bool SpawnBoss;
 	Character* MakeCharacter();
 
 	void ShopEnter();
 	void ShowCharacterInfo();
-	void PlayBattle(bool spawnBoss);
+	void PlayBattle();
 
 
 public:
-	GameManager() : Player(nullptr), GameMonster(nullptr), IsClear(false) {}
+	GameManager() : Player(nullptr), GameMonster(nullptr), IsClear(false), SpawnBoss(false){}
 	void PlayMainMenu();
 
 };

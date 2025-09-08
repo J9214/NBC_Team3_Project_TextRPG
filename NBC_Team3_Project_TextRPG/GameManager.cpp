@@ -42,7 +42,7 @@ void GameManager::ShopEnter()
 		system("cls");
 		cout << "상점에 오신걸 환영합니다." << endl;
 
-		GameShop.displayItems();
+		GameShop.DisplayItems();
 		
 		cout << "1. 아이템을 구매합니다." << endl;
 		cout << "2. 아이템을 판매합니다." << endl;
@@ -70,7 +70,7 @@ void GameManager::ShopEnter()
 			{
 				system("cls");
 
-				GameShop.displayItems();
+				GameShop.DisplayItems();
 				Player->DisplayInventory();
 
 				cout << endl;
@@ -97,7 +97,7 @@ void GameManager::ShopEnter()
 
 				cout << endl;
 
-				GameShop.buyItem((Index), Player);
+				GameShop.BuyItem((Index), Player);
 
 				system("pause");
 			}
@@ -135,7 +135,7 @@ void GameManager::ShopEnter()
 					break;
 				}
 
-				GameShop.sellItem(Index, Player);
+				GameShop.SellItem(Index, Player);
 
 				system("pause");
 			}
@@ -164,53 +164,53 @@ void GameManager::ShowCharacterInfo()
 	return;
 }
 
-void GameManager::PlayBattle(bool spawnBoss)
+void GameManager::PlayBattle()
 {
 	cout << "플레이어 " << Player->GetName() << " 체력: " << Player->GetHealth() << " | 공격력: " << Player->GetAttack() << endl;
-	cout << "몬스터 " << GameMonster->getName() << " 체력: " << GameMonster->getHealth() << " | 공격력: " << GameMonster->getAttack() << endl;
+	cout << "몬스터 " << GameMonster->GetName() << " 체력: " << GameMonster->GetHealth() << " | 공격력: " << GameMonster->GetAttack() << endl;
 	cout << "전투 개시!" <<endl;
 	cout << endl;
 
-	while (Player->GetHealth() != 0 && GameMonster->getHealth() != 0)
+	while (Player->GetHealth() != 0 && GameMonster->GetHealth() != 0)
 	{
 		cout << "플레이어 " << Player->GetName() << "의 턴!" << endl;
-		GameBattleSystem.useitem(Player);
+		GameBattleSystem.UseItem(Player);
 
-		cout << "플레이어 " << Player->GetName() << "은(는) 몬스터 " << GameMonster->getName() << "에게 " << Player->GetAttack() << " 데미지를 주었다" << endl;
+		cout << "플레이어 " << Player->GetName() << "은(는) 몬스터 " << GameMonster->GetName() << "에게 " << Player->GetAttack() << " 데미지를 주었다" << endl;
 		
-		if(GameBattleSystem.playerattack(GameMonster, Player) == true)
+		if(GameBattleSystem.PlayerAttack(GameMonster, Player) == true)
 		{
-			cout << "몬스터 " << GameMonster->getName() << "의 남은 체력: " << GameMonster->getHealth() << endl;
-			cout << "몬스터 " << GameMonster->getName() << "은(는) 사망하였다." << endl;
+			cout << "몬스터 " << GameMonster->GetName() << "의 남은 체력: " << GameMonster->GetHealth() << endl;
+			cout << "몬스터 " << GameMonster->GetName() << "은(는) 사망하였다." << endl;
 			cout << endl;
 			cout << "플레이어 " << Player->GetName() << " 승리! " << endl;
 			cout << endl;
 
-			if(spawnBoss == true)
+			if(SpawnBoss == true)
 			{
 				IsClear = true;
 				return;
 			}
 
-			GameBattleSystem.reward(Player);
+			GameBattleSystem.Reward(Player);
 			cout << endl;
 
 			system("pause");
 			return;
 		}
 
-		cout << "몬스터 " << GameMonster->getName() << "의 남은 체력: " << GameMonster->getHealth() << endl;
+		cout << "몬스터 " << GameMonster->GetName() << "의 남은 체력: " << GameMonster->GetHealth() << endl;
 		cout << endl;
-		cout << "몬스터 " << GameMonster->getName() << "의 턴!" << endl;
+		cout << "몬스터 " << GameMonster->GetName() << "의 턴!" << endl;
 
-		cout << "몬스터 " << GameMonster->getName() << "은(는) 플레이어 " << Player->GetName() << "에게 " << GameMonster->getAttack() << " 데미지를 주었다" << endl;
+		cout << "몬스터 " << GameMonster->GetName() << "은(는) 플레이어 " << Player->GetName() << "에게 " << GameMonster->GetAttack() << " 데미지를 주었다" << endl;
 
-		if(	GameBattleSystem.monsterattack(GameMonster, Player) == true)
+		if(	GameBattleSystem.MonsterAttack(GameMonster, Player) == true)
 		{
 			cout << "플레이어 " << Player->GetName() << "의 남은 체력: " << Player->GetHealth() << endl;
 			cout << "플레이어 " << Player->GetName() << "은(는) 사망하였다." << endl;
 			cout << endl;
-			cout << "몬스터 " << GameMonster->getName() << "의 승리! " << endl;
+			cout << "몬스터 " << GameMonster->GetName() << "의 승리! " << endl;
 			return;
 		}
 
@@ -223,7 +223,7 @@ void GameManager::PlayBattle(bool spawnBoss)
 
 void GameManager::PlayMainMenu()
 {
-	bool spawnBoss = false;
+	
 
 	if (Player == nullptr)
 	{
@@ -240,7 +240,7 @@ void GameManager::PlayMainMenu()
 		
 		if(Player->GetLevel() == Player->GetMaxLevel())
 		{
-			spawnBoss = true;
+			SpawnBoss = true;
 		}
 
 		cout << "텍스트 기반 RPG 게임" << endl;
@@ -270,10 +270,10 @@ void GameManager::PlayMainMenu()
 			
 			if (GameMonster == nullptr)
 			{
-				GameMonster = GameBattleSystem.generateMonster(Player->GetLevel());
+				GameMonster = GameBattleSystem.GenerateMonster(Player->GetLevel());
 			}
 
-			PlayBattle(spawnBoss);
+			PlayBattle();
 
 			delete GameMonster;
 			GameMonster = nullptr;
@@ -312,7 +312,6 @@ void GameManager::PlayMainMenu()
 		}
 
 		cout << "\n---------------------------\n" << endl;
-
 	}
 
 	if (IsClear == true)
@@ -323,6 +322,7 @@ void GameManager::PlayMainMenu()
 	{
 		cout << Player->GetName() << ", 당신은 몬스터와 처절한 전투 끝에 사망하고 말았습니다." << endl;
 	}
+
 	return;
 }
 
