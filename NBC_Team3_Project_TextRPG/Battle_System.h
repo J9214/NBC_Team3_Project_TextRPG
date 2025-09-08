@@ -9,9 +9,10 @@ class BattleSystem {
 public:
 	Monster* generateMonster(int level);
 	bool playerattack(Monster* monster, Character* player);
+	bool monsterattack(Monster* monster, Character* player);
 	void reward(Character* player);
 	void useitem(Character* player);
-	bool monsterattack(Monster* monster, Character* player);
+	
 };
 
 
