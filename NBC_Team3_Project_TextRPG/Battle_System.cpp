@@ -13,23 +13,23 @@
 Monster* BattleSystem::GenerateMonster(int level) 
 {
 	std::random_device rd;
-	int rd_gen = rd() % 4;
+	int rd_Gen = rd() % 4;
 
-	if (rd_gen == 0 && level < 10) 
+	if (rd_Gen == 0 && level < 10) 
 	{
 		return new Goblin(level);
 	}
-	else if (rd_gen == 1 && level < 10) 
+	else if (rd_Gen == 1 && level < 10) 
 	{
 		return new Orc(level);
 	}
 
-	else if (rd_gen == 2 && level < 10) 
+	else if (rd_Gen == 2 && level < 10) 
 	{
 		return new Slime(level);
 	}
 
-	else if (rd_gen == 3 && level < 10) 
+	else if (rd_Gen == 3 && level < 10) 
 	{
 		return new Troll(level);
 	}
