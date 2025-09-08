@@ -31,7 +31,7 @@ void Shop::DisplayItems() const
 
 	for (size_t i = 0; i < LoopCount; ++i)
 	{
-		cout << i + 1 << ". " << availableItems[i]->getName() << " " << availableItems[i]->getPrice() << " Gold" << endl;
+		cout << i + 1 << ". " << availableItems[i]->GetName() << " " << availableItems[i]->GetPrice() << " Gold" << endl;
 	}
 
 	cout << "\n==========================\n" << endl;
@@ -54,12 +54,12 @@ void Shop::BuyItem(int index, Character* player) const
 	}
 
 	// 플레이어가 소지한 골드가 물건 가격 이상일 때 구매(체력 물약: 10 Gold, 공격력 강화: 15 Gold)
-	Item* ItemToBuy = availableItems[index - 1]->clone();
+	Item* ItemToBuy = availableItems[index - 1]->Clone();
 	
-	if (player->GetGold() >= ItemToBuy->getPrice())
+	if (player->GetGold() >= ItemToBuy->GetPrice())
 	{
-		player->SetGold(player->GetGold() - ItemToBuy->getPrice());
-		cout << ItemToBuy->getName() << "을 구매하였습니다." << endl;
+		player->SetGold(player->GetGold() - ItemToBuy->GetPrice());
+		cout << ItemToBuy->GetName() << "을 구매하였습니다." << endl;
 
 		// 인벤토리에 아이템 추가
 		player->AddItem(ItemToBuy);
@@ -77,7 +77,7 @@ void Shop::SellItem(int index, Character* player) const
 	if (ItemToSell != nullptr)
 	{
 		// 플레이어 인벤토리에서 판매할 물건 선택 후 원가 * 0.6 가격으로 판매
-		player->SetGold(player->GetGold() + (ItemToSell->getPrice() * 6) / 10);
+		player->SetGold(player->GetGold() + (ItemToSell->GetPrice() * 6) / 10);
 
 		// 플레이어 인벤토리에서 판매한 아이템 삭제
 		player->EraseItem(index - 1);
