@@ -10,7 +10,7 @@ protected:
 	int attack;
 
 public:
-	Monster(std::string monsterName, int playerlevel);
+	Monster(std::string monsterName, int playerLevel);
 	virtual ~Monster() = default;
 
 	std::string GetName() const;
