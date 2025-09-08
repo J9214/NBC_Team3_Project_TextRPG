@@ -3,6 +3,7 @@
 #include "HealthPotion.h"
 #include "AttackBoost.h"
 #include "Character.h"
+using namespace std;
 
 Shop::Shop()
 {
