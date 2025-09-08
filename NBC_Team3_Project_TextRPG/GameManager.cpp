@@ -164,16 +164,16 @@ void GameManager::PlayBattle(bool spawnBoss)
 
 	while (player->getHealth() != 0 && monster->getHealth() != 0)
 	{
-		cout << "플레이어의 턴!" << endl;
+		cout << "플레이어 " << player->getName() << "의 턴!" << endl;
 		battleSystem.useitem(player);
 
-		cout << "플레이어는 몬스터에게 " << player->getAttack() << " 데미지를 주었다" << endl;
+		cout << "플레이어 " << player->getName() << "은(는) 몬스터 " << monster->getName() << "에게 " << player->getAttack() << " 데미지를 주었다" << endl;
 		if(battleSystem.playerattack(monster, player) == true)
 		{
-			cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
-			cout << "몬스터는 사망하였다." << endl;
+			cout << "몬스터 " << monster->getName() << "의 남은 체력: " << monster->getHealth() << endl;
+			cout << "몬스터 " << monster->getName() << "은(는) 사망하였다." << endl;
 			cout << endl;
-			cout << "플레이어 승리! " << endl;
+			cout << "플레이어 " << player->getName() << " 승리! " << endl;
 			cout << endl;
 			if(spawnBoss == true)
 			{
@@ -187,21 +187,21 @@ void GameManager::PlayBattle(bool spawnBoss)
 			return;
 		}
 
-		cout << "몬스터의 남은 체력: " << monster->getHealth() << endl;
+		cout << "몬스터 " << monster->getName() << "의 남은 체력: " << monster->getHealth() << endl;
 		cout << endl;
-		cout << "몬스터의 턴!" << endl;
+		cout << "몬스터 " << monster->getName() << "의 턴!" << endl;
 
-		cout << "몬스터는 플레이어에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
+		cout << "몬스터 " << monster->getName() << "은(는) 플레이어 " << player->getName() << "에게 " << monster->getAttack() << " 데미지를 주었다" << endl;
 
 		if(	battleSystem.monsterattack(monster, player) == true)
 		{
-			cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
-			cout << "플레이어는 사망하였다." << endl;
+			cout << "플레이어 " << player->getName() << "의 남은 체력: " << player->getHealth() << endl;
+			cout << "플레이어 " << player->getName() << "은(는) 사망하였다." << endl;
 			cout << endl;
-			cout << "몬스터의 승리! " << endl;
+			cout << "몬스터 " << monster->getName() << "의 승리! " << endl;
 			return;
 		}
-		cout << "플레이어의 남은 체력: " << player->getHealth() << endl;
+		cout << "플레이어 " << player->getName() << "의 남은 체력: " << player->getHealth() << endl;
 		cout << endl;
 	}
 	
