@@ -2,15 +2,13 @@
 
 #include <vector>
 
-using namespace std;
-
 class Item;
 class Character;
 
 class Shop
 {
 private:
-	vector<Item*> availableItems;
+	std::vector<Item*> availableItems;
 
 public:
 	Shop();
