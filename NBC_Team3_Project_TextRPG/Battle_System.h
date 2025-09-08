@@ -4,7 +4,7 @@
 #include "Monster.h"     
 #include "Character.h" 
 
-using namespace std;
+
 class BattleSystem {
 public:
 	Monster* generateMonster(int level);
