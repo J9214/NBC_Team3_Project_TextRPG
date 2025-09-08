@@ -1,17 +1,9 @@
-#include "Slime.h"
+﻿#include "Slime.h"
+using namespace std;
 
-Slime::Slime(int playerlevel)
-	: Monster("Slime", playerlevel)
+Slime::Slime(int playerLevel)
+	: Monster("Slime", playerLevel)
 { 
 	SetHealth();
 	SetAttack();
-}
-
-void Slime::TakeDamage(int damage) 
-{
-	health -= damage;
-	if (health < 0) 
-	{
-		health = 0;
-	}
 }

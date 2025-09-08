@@ -1,5 +1,4 @@
-#include "GameManager.h"
-
+﻿#include "GameManager.h"
 using namespace std;
 
 int main(void)
