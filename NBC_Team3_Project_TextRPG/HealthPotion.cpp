@@ -8,8 +8,12 @@ HealthPotion::HealthPotion() :
 	healthRestore(50)
 {}
 
-void HealthPotion::use(Character * character)
+void HealthPotion::Use(Character * character)
 {
-	int hp = min(character->getMaxHealth(), character->getHealth() + healthRestore);
-	character->setHealth(hp);
+	character->SetHealth(character->GetHealth() + healthRestore);
+}
+
+Item* HealthPotion::Clone()
+{
+	return new HealthPotion(*this);
 }

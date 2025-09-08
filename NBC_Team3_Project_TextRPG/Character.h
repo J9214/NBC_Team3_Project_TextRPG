@@ -26,34 +26,34 @@ public:
 	Character& operator=(const Character&) = delete;
 
 	Character(std::string name);
-	static Character* getInstance(std::string name);
+	static Character* GetInstance(std::string name);
 
-	std::string getName();
-	int getHealth();
-	int getMaxHealth();
-	int getAttack();
-	int getLevel();
-	int getMaxLevel();
-	int getExperience();
-	int getMaxExperience();
-	int getGold();
-	int getInventorySize();
-	int getMaxInventorySize();
-	Item* getItem(int index);
+	std::string GetName() const;
+	int GetHealth() const;
+	int GetMaxHealth() const;
+	int GetAttack() const;
+	int GetLevel() const;
+	int GetMaxLevel() const;
+	int GetExperience() const;
+	int GetMaxExperience() const;
+	int GetGold() const;
+	int GetInventorySize() const;
+	int GetMaxInventorySize() const;
+	Item* GetItem(int index) const;
 
-	void setHealth(int health);
-	void setMaxHealth(int health);
-	void setAttack(int attack);
-	void setExperience(int experience);
-	void setGold(int gold);
-	void setLevel(int level) ;
+	void SetHealth(int health);
+	void SetMaxHealth(int health);
+	void SetAttack(int attack);
+	void SetExperience(int experience);
+	void SetGold(int gold);
+	void SetLevel(int level) ;
 
-	void displayStatus();
-	void displayInventory();
-	void levelUp();
-	void useItem(int index);
-	void addItem(Item* item);
-	void eraseItem(int index);
+	void DisplayStatus();
+	void DisplayInventory();
+	void LevelUp();
+	void UseItem(int index);
+	void AddItem(Item* item);
+	void EraseItem(int index);
 
 	~Character();
 };
