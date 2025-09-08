@@ -1,5 +1,5 @@
 #pragma once
-//#include "BattleSystem.h"
+//손우참 
 #include "Shop.h"
 #include "Battle_System.h"
 
@@ -9,11 +9,11 @@ class Monster;
 class GameManager
 {
 private:
-	Character* player;
-	Monster* monster;
-	Shop shop;
-	BattleSystem battleSystem;
-	bool isClear;
+	Character* Player;
+	Monster* GameMonster;
+	Shop GameShop;
+	BattleSystem GameBattleSystem;
+	bool IsClear;
 
 	Character* MakeCharacter();
 
@@ -23,7 +23,7 @@ private:
 
 
 public:
-	GameManager() : player(nullptr), monster(nullptr), isClear(false) {}
+	GameManager() : Player(nullptr), GameMonster(nullptr), IsClear(false) {}
 	void PlayMainMenu();
 
 };
