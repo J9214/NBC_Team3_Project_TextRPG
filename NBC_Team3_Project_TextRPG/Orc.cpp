@@ -1,12 +1,18 @@
 #include "Orc.h"
 
-Orc::Orc(int level) : Monster("Orc", level) {
+Orc::Orc(int playerlevel)
+	: Monster("Orc", playerlevel)
+{
 	setHealth();
 	setAttack();
 
 }
 
-void Orc::takeDamage(int damage) {
+void Orc::takeDamage(int damage) 
+{
 	health -= damage;
-	if (health < 0) health = 0;
+	if (health < 0) 
+	{
+		health = 0;
+	}
 }
