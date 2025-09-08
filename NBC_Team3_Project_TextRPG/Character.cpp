@@ -67,7 +67,7 @@ void Character::UseItem(int index)
 		return;
 	}
 
-	item->use(this);
+	item->Use(this);
 
 	delete item;
 	

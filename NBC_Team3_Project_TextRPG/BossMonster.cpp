@@ -4,11 +4,11 @@
 BossMonster::BossMonster(int playerlevel)
 	: Monster("Dragon", playerlevel)
 {
-	setHealth(1.5);
-	setAttack(1.5);
+	SetHealth(1.5);
+	SetAttack(1.5);
 }
 
-void BossMonster::takeDamage(int damage)
+void BossMonster::TakeDamage(int damage)
 {
 	health -= damage;
 	if (health < 0) {

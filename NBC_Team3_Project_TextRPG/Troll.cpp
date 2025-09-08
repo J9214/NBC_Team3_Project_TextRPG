@@ -3,12 +3,12 @@
 Troll::Troll(int playerlevel)
 	: Monster("Troll", playerlevel)
 { 
-	setHealth();
-	setAttack();
+	SetHealth();
+	SetAttack();
 
 }
 
-void Troll::takeDamage(int damage) 
+void Troll::TakeDamage(int damage) 
 {
 	health -= damage;
 	if (health < 0) 
