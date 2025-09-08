@@ -9,12 +9,12 @@ class Monster;
 class GameManager
 {
 private:
-	Character* Player;
-	Monster* GameMonster;
-	Shop GameShop;
-	BattleSystem GameBattleSystem;
-	bool IsClear;
-	bool SpawnBoss;
+	Character* player;
+	Monster* gameMonster;
+	Shop gameShop;
+	BattleSystem gameBattleSystem;
+	bool isClear;
+	bool spawnBoss;
 	Character* MakeCharacter();
 
 	void ShopEnter();
@@ -23,7 +23,7 @@ private:
 
 
 public:
-	GameManager() : Player(nullptr), GameMonster(nullptr), IsClear(false), SpawnBoss(false){}
+	GameManager() : player(nullptr), gameMonster(nullptr), isClear(false), spawnBoss(false){}
 	void PlayMainMenu();
 
 };

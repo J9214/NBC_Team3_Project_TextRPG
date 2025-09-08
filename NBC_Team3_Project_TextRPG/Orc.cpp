@@ -3,12 +3,12 @@
 Orc::Orc(int playerlevel)
 	: Monster("Orc", playerlevel)
 {
-	setHealth();
-	setAttack();
+	SetHealth();
+	SetAttack();
 
 }
 
-void Orc::takeDamage(int damage) 
+void Orc::TakeDamage(int damage) 
 {
 	health -= damage;
 	if (health < 0) 

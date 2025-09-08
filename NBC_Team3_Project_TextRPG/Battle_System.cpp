@@ -70,7 +70,7 @@ void BattleSystem::Reward(Character* player)
 	if (player->GetExperience() >= player->GetMaxExperience())
 	{
 		std::cout << "플레이어 " << player->GetName() << "은(는) 레벨업 하였다." << std::endl;
-		player->levelUp();
+		player->LevelUp();
 		std::cout << "플레이어 " << player->GetName() << "의 현재 레벨: " << player->GetLevel() << std::endl;
 
 	}
