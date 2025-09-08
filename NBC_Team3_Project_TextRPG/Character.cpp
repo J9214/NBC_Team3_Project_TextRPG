@@ -14,13 +14,13 @@ Character::Character(std::string name)
 	this->inventory = {};
 }
 
-Character* Character::getInstance(std::string name)
+Character* Character::GetInstance(std::string name)
 {
 	static Character instance(name);
 	return &instance;
 }
 
-void Character::displayStatus()
+void Character::DisplayStatus()
 {
 	 cout << "Name: " << name << endl;
 	 cout << "Level: " << level << endl;
@@ -28,20 +28,22 @@ void Character::displayStatus()
 	 cout << "Attack: " << attack << endl;
 	 cout << "Experience: " << experience << endl;
 	 cout << "Gold: " << gold << endl;
-	 displayInventory();
+	 DisplayInventory();
 }
 
-void Character::displayInventory()
+void Character::DisplayInventory()
 {
 	cout << "Inventory: " << endl;
-	for (size_t i = 0; i < inventory.size(); i++) {
-		cout << i + 1 << ". " << inventory[i]->getName() << endl;
+	for (size_t i = 0; i < inventory.size(); i++) 
+	{
+		cout << i + 1 << ". " << inventory[i]->GetName() << endl;
 	}
 }
 
-void Character::levelUp()
+void Character::LevelUp()
 {
-	while (level < maxLevel && experience >= 100) {
+	while (level < maxLevel && experience >= 100) 
+	{
 		level++;
 		experience -= 100;
 		maxHealth += level * 20;
@@ -50,15 +52,17 @@ void Character::levelUp()
 	}
 }
 
-void Character::useItem(int index)
+void Character::UseItem(int index)
 {	
-	if (index < 0 || index >= inventory.size()) {
+	if (index < 0 || index >= inventory.size()) 
+	{
 		std::cout << "잘못된 인덱스입니다." << std::endl;
 		return;
 	}
 
 	Item* item = inventory[index];
-	if (item == nullptr) {
+	if (item == nullptr) 
+	{
 		std::cout << "아이템이 없습니다." << std::endl;
 		return;
 	}
@@ -70,23 +74,26 @@ void Character::useItem(int index)
 	inventory.erase(inventory.begin() + index);
 }
 
-void Character::addItem(Item* item)
+void Character::AddItem(Item* item)
 {
-	if(inventory.size() >= maxInventorySize) {
+	if(inventory.size() >= maxInventorySize) 
+	{
 		std::cout << "인벤토리가 가득 찼습니다." << std::endl;
 		return;
 	}
 	inventory.push_back(item);
 }
 
-void Character::eraseItem(int index)
+void Character::EraseItem(int index)
 {
-	if (index < 0 || index >= inventory.size()) {
+	if (index < 0 || index >= inventory.size()) 
+	{
 		std::cout << "잘못된 인덱스입니다." << std::endl;
 		return;
 	}
 	Item* item = inventory[index];
-	if (item == nullptr) {
+	if (item == nullptr) 
+	{
 		std::cout << "아이템이 없습니다." << std::endl;
 		return;
 	}
@@ -94,18 +101,52 @@ void Character::eraseItem(int index)
 	inventory.erase(inventory.begin() + index);
 }
 
-string Character::getName()  const { return name; }
-int Character::getHealth()  const { return health; }
-int Character::getMaxHealth()  const { return maxHealth; }
-int Character::getAttack()  const { return attack; }
-int Character::getLevel()  const { return level; }
-int Character::getMaxLevel()  const { return maxLevel; }
-int Character::getExperience()  const { return experience; }
-int Character::getMaxExperience()  const { return maxExperience; }
-int Character::getGold()  const { return gold; }
-int Character::getInventorySize()  const { return inventory.size(); }
-int Character::getMaxInventorySize()  const { return maxInventorySize; }
-Item* Character::getItem(int index)  const { 
+string Character::GetName() const 
+{ 
+	return name; 
+}
+int Character::GetHealth() const 
+{ 
+	return health; 
+}
+int Character::GetMaxHealth() const 
+{ 
+	return maxHealth; 
+}
+int Character::GetAttack() const 
+{ 
+	return attack; 
+}
+int Character::GetLevel() const 
+{ 
+	return level; 
+}
+int Character::GetMaxLevel() const 
+{ 
+	return maxLevel; 
+}
+int Character::GetExperience() const 
+{ 
+	return experience; 
+}
+int Character::GetMaxExperience() const 
+{ 
+	return maxExperience; 
+}
+int Character::GetGold() const 
+{ 
+	return gold; 
+}
+int Character::GetInventorySize() const 
+{ 
+	return inventory.size(); 
+}
+int Character::GetMaxInventorySize() const 
+{ 
+	return maxInventorySize; 
+}
+Item* Character::GetItem(int index) const 
+{ 
 	if (index < 0 || index >= inventory.size()) 
 	{
 		std::cout << "잘못된 인덱스입니다." << std::endl;
@@ -114,19 +155,43 @@ Item* Character::getItem(int index)  const {
 	return inventory[index]; 
 }
 
-void Character::setHealth(int health) {
+void Character::SetHealth(int health) 
+{
 	this->health = health;
-	if (this->health < 0) this->health = 0;
-	if (this->health > this->maxHealth) this->health = this->maxHealth;
+	if (this->health < 0)
+	{
+		this->health = 0;
+	}
+	if (this->health > this->maxHealth)
+	{
+		this->health = this->maxHealth;
+	}
 }
-void Character::setMaxHealth(int health) { this->maxHealth = health; }
-void Character::setAttack(int attack) { this->attack = attack; }
-void Character::setExperience(int experience) { this->experience = experience; }
-void Character::setGold(int gold) { this->gold = gold; }
-void Character::setLevel(int level) { this->level = level; }
+void Character::SetMaxHealth(int health) 
+{ 
+	this->maxHealth = health; 
+}
+void Character::SetAttack(int attack) 
+{ 
+	this->attack = attack; 
+}
+void Character::SetExperience(int experience) 
+{ 
+	this->experience = experience; 
+}
+void Character::SetGold(int gold) 
+{ 
+	this->gold = gold; 
+}
+void Character::SetLevel(int level) 
+{ 
+	this->level = level; 
+}
 
-Character::~Character() {
-	for (auto item : inventory) {
+Character::~Character() 
+{
+	for (auto item : inventory) 
+	{
 		delete item;
 	}
 	inventory.clear();
