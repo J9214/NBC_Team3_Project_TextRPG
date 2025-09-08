@@ -2,7 +2,8 @@
 #include <iostream>
 #include "Monster.h"
 
-class Slime : public Monster {
+class Slime : public Monster 
+{
 public:
 	// »ı¼ºÀÚ
 	Slime(int playerlevel);

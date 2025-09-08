@@ -3,7 +3,8 @@
 #include <random>
 using namespace std;
 
-class Monster {
+class Monster 
+{
 protected:
 	string name;
 	int level;
