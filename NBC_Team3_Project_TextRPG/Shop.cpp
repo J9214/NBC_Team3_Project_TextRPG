@@ -24,7 +24,7 @@ Shop::~Shop()
 
 void Shop::displayItems()
 {
-	cout << "========== 상점 ==========" << endl;
+	cout << "========== 상점 ==========\n" << endl;
 
 	size_t LoopCount = availableItems.size();
 
@@ -33,7 +33,7 @@ void Shop::displayItems()
 		cout << i + 1 << ". " << availableItems[i]->getName() << " " << availableItems[i]->getPrice() << " Gold" << endl;
 	}
 
-	cout << "==========================" << endl;
+	cout << "\n==========================\n" << endl;
 }
 
 void Shop::buyItem(int index, Character* player)
@@ -80,5 +80,6 @@ void Shop::sellItem(int index, Character* player)
 
 		// 플레이어 인벤토리에서 판매한 아이템 삭제
 		player->eraseItem(index - 1);
+		cout << "판매 완료" << endl;
 	}
 }
