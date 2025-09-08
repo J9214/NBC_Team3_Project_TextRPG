@@ -308,7 +308,7 @@ void GameManager::PlayMainMenu()
 			system("cls");
 			cout << "게임을 종료합니다..." << endl;
 
-			break;
+			return;
 		}
 		else
 		{
