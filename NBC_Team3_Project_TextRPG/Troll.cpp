@@ -1,14 +1,18 @@
 #include "Troll.h"
 
-Troll::Troll(int level) : Monster("Troll", level) { 
+Troll::Troll(int playerlevel)
+	: Monster("Troll", playerlevel)
+{ 
 	setHealth();
 	setAttack();
 
 }
 
-void Troll::takeDamage(int damage) {
+void Troll::takeDamage(int damage) 
+{
 	health -= damage;
-	if (health < 0) {
+	if (health < 0) 
+	{
 		health = 0;
 	}
 }
