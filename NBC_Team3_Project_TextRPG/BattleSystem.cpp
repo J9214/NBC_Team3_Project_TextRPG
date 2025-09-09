@@ -112,6 +112,7 @@ void BattleSystem::UseItem(Character* player)
 	{  
 		cout << "플레이어 " << player->GetName() << "은(는) " << player->GetItem(0)->GetName() << "을 사용했다." << endl;
 		player->UseItem(0);  //인덱스0 아이템 사용
+		cout << "플레이어" << player->GetName() << " 체력: " << player->GetHealth() << " | 공격력: " << player->GetAttack() << endl;
 	}
 
 	return;
