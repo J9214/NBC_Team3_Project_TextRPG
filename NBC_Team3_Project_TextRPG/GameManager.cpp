@@ -38,7 +38,7 @@ Character* GameManager::MakeCharacter()
 
 		break;	
 	}
-
+	
 	return Character::GetInstance(Name);
 }
 
@@ -164,9 +164,14 @@ void GameManager::ShopEnter()
 	return;
 }
 
-void GameManager::ShowCharacterInfo()
+void GameManager::ShowCharacterInfo() const
 {
 	player->DisplayStatus();
+	cout << endl;
+	cout << "Killed Monster: " << player->GetKillCount() << endl;
+	cout << "Total Gold: " << player->GetTotalGold() << endl;
+	cout << "Use Health Potion: " << player->GetHealthPotionUsed() << endl;
+	cout << "Use Attack Boost: " << player->GetAttackBoostUsed() << endl;
 	return;
 }
 
@@ -233,6 +238,8 @@ void GameManager::PlayMainMenu()
 	{
 		player = MakeCharacter();
 	}
+	playerStatsOb = make_unique<CharacterStatObserver>(player);
+	gameBattleSystem.AddObserver(playerStatsOb.get());
 
 	system("cls");
 
