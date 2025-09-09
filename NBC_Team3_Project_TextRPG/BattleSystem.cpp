@@ -117,7 +117,14 @@ void BattleSystem::UseItem(Character* player)
 	int rdUseItem = rd() % 100;
 	if (rdUseItem < 30) 
 	{  
-		Notify(GameEvent::POTION_USED, 1);
+		if (player->GetItem(0)->GetName() == "HealthPotion")
+		{
+			Notify(GameEvent::HEALTH_POTION_USED, 1);
+		}
+		else
+		{
+			Notify(GameEvent::ATTACK_BOOST_USED, 1);
+		}
 
 		cout << "플레이어 " << player->GetName() << "은(는) " << player->GetItem(0)->GetName() << "을 사용했다." << endl;
 		player->UseItem(0);  //인덱스0 아이템 사용

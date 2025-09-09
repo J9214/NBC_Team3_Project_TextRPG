@@ -167,9 +167,11 @@ void GameManager::ShopEnter()
 void GameManager::ShowCharacterInfo()
 {
 	player->DisplayStatus();
+	cout << endl;
 	cout << "Killed Monster: " << player->GetKillCount() << endl;
 	cout << "Total Gold: " << player->GetTotalGold() << endl;
-	cout << "Use Potions: " << player->GetPotionsUsed() << endl;
+	cout << "Use Health Potion: " << player->GetHealthPotionUsed() << endl;
+	cout << "Use Attack Boost: " << player->GetAttackBoostUsed() << endl;
 	return;
 }
 

@@ -16,8 +16,11 @@ void CharacterStatObserver::OnNotify(GameEvent event, int value)
 	case GameEvent::GOLD_ACQUIRED:
 		targetPlayer->AddTotalGold(value);
 		break;
-	case GameEvent::POTION_USED:
-		targetPlayer->AddPotionsUsed(value);
+	case GameEvent::HEALTH_POTION_USED:
+		targetPlayer->AddHealthPotionUsed(value);
+		break;
+	case GameEvent::ATTACK_BOOST_USED:
+		targetPlayer->AddAttackBoostUsed(value);
 		break;
 	}
 }

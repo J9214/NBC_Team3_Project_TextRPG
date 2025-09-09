@@ -19,7 +19,8 @@ private:
 
 	int monsterKilled = 0;
 	int totalGold = 0;
-	int potionUsed = 0;
+	int healthPotionUsed = 0;
+	int attackBoostUsed = 0;
 
 	// Item 
 	std::vector<Item*> inventory;
@@ -60,10 +61,13 @@ public:
 
 	void AddKillCount(int amount);
 	void AddTotalGold(int amount);
-	void AddPotionsUsed(int amount);
+	void AddHealthPotionUsed(int amount);
+	void AddAttackBoostUsed(int amount);
 
 	int GetKillCount() const;
 	int GetTotalGold() const;
-	int GetPotionsUsed() const;
+	int GetHealthPotionUsed() const;
+	int GetAttackBoostUsed() const;
+
 	~Character();
 };

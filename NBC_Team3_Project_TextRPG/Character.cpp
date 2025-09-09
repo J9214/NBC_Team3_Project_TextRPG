@@ -227,9 +227,14 @@ void Character::AddTotalGold(int amount)
 	totalGold += amount;
 }
 
-void Character::AddPotionsUsed(int amount = 1)
+void Character::AddHealthPotionUsed(int amount = 1)
 {
-	potionUsed += amount;
+	healthPotionUsed += amount;
+}
+
+void Character::AddAttackBoostUsed(int amount = 1)
+{
+	attackBoostUsed += amount;
 }
 
 int Character::GetKillCount() const
@@ -242,7 +247,12 @@ int Character::GetTotalGold() const
 	return totalGold;
 }
 
-int Character::GetPotionsUsed() const
+int Character::GetHealthPotionUsed() const
 {
-	return potionUsed;
+	return healthPotionUsed;
+}
+
+int Character::GetAttackBoostUsed() const
+{
+	return attackBoostUsed;
 }
