@@ -103,6 +103,8 @@ void Character::EraseItem(int index)
 	inventory.erase(inventory.begin() + index);
 }
 
+
+
 string Character::GetName() const 
 { 
 	return name; 
@@ -213,4 +215,34 @@ Character::~Character()
 		delete item;
 	}
 	inventory.clear();
+}
+
+void Character::AddKillCount(int amount = 1)
+{
+	monsterKilled += amount;
+}
+
+void Character::AddTotalGold(int amount)
+{
+	totalGold += amount;
+}
+
+void Character::AddPotionsUsed(int amount = 1)
+{
+	potionUsed += amount;
+}
+
+int Character::GetKillCount() const
+{
+	return monsterKilled;
+}
+
+int Character::GetTotalGold() const
+{
+	return totalGold;
+}
+
+int Character::GetPotionsUsed() const
+{
+	return potionUsed;
 }

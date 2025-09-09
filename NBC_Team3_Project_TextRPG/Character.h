@@ -17,6 +17,10 @@ private:
 	int gold;
 	int maxInventorySize = 10;
 
+	int monsterKilled = 0;
+	int totalGold = 0;
+	int potionUsed = 0;
+
 	// Item 
 	std::vector<Item*> inventory;
 
@@ -54,5 +58,12 @@ public:
 	void AddItem(Item* item);
 	void EraseItem(int index);
 
+	void AddKillCount(int amount);
+	void AddTotalGold(int amount);
+	void AddPotionsUsed(int amount);
+
+	int GetKillCount() const;
+	int GetTotalGold() const;
+	int GetPotionsUsed() const;
 	~Character();
 };
