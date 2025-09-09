@@ -22,7 +22,7 @@ private:
 	Character* MakeCharacter();
 
 	void ShopEnter();
-	void ShowCharacterInfo();
+	void ShowCharacterInfo() const;
 	void PlayBattle();
 
 public:

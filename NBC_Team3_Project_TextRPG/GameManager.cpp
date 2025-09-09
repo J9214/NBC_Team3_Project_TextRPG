@@ -164,7 +164,7 @@ void GameManager::ShopEnter()
 	return;
 }
 
-void GameManager::ShowCharacterInfo()
+void GameManager::ShowCharacterInfo() const
 {
 	player->DisplayStatus();
 	cout << endl;
