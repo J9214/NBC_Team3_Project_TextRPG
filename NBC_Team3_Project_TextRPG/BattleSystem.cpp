@@ -65,7 +65,8 @@ void BattleSystem::Reward(Character* player)
 	int rdGetItem = rd() % 100;
 	int rdWhichItem = rd() % 100;
 	int rdGetGold = 10 + rd() % 11; 
-
+	cout << "=================== 전투 보상 =================== " << endl;
+	cout << endl;
 	cout << "플레이어 " << player->GetName() << "은(는) 50의 경험치를 획득하였다." << endl;
 
 	player->SetExperience(player->GetExperience() + 50);
