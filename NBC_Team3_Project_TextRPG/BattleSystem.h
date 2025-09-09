@@ -15,8 +15,6 @@ public:
 	void Reward(Character* player);
 	void UseItem(Character* player);
 
-	//observersystem
-
 	void AddObserver(GameObserver* observer);
 	void RemoveObserver(GameObserver* observer);
 	void Notify(GameEvent event, int value = 0);
