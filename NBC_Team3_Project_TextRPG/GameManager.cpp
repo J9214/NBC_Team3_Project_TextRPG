@@ -3,9 +3,8 @@
 #include <Windows.h>
 #include "GameManager.h"
 #include "Character.h"
-#include "Goblin.h"
-#include "HealthPotion.h"
-#include "AttackBoost.h"
+#include "Sound.h"
+
 using namespace std;
 
 GameManager::GameManager()
@@ -38,7 +37,7 @@ Character* GameManager::MakeCharacter()
 
 		break;	
 	}
-
+	
 	return Character::GetInstance(Name);
 }
 
@@ -167,6 +166,11 @@ void GameManager::ShopEnter()
 void GameManager::ShowCharacterInfo() const
 {
 	player->DisplayStatus();
+	cout << endl;
+	cout << "Killed Monster: " << player->GetKillCount() << endl;
+	cout << "Total Gold: " << player->GetTotalGold() << endl;
+	cout << "Use Health Potion: " << player->GetHealthPotionUsed() << endl;
+	cout << "Use Attack Boost: " << player->GetAttackBoostUsed() << endl;
 	return;
 }
 
@@ -229,11 +233,15 @@ void GameManager::PlayBattle()
 
 void GameManager::PlayMainMenu()
 {
+
 	if (player == nullptr)
 	{
 		player = MakeCharacter();
 	}
+	playerStatsOb = make_unique<CharacterStatObserver>(player);
+	gameBattleSystem.AddObserver(playerStatsOb.get());
 
+	SoundManager::GetInstance()->PlayBGM("src/music/main.mp3");
 	system("cls");
 
 	while (player->GetHealth() != 0 && isClear == false)
@@ -307,6 +315,7 @@ void GameManager::PlayMainMenu()
 		{
 			system("cls");
 			cout << "게임을 종료합니다..." << endl;
+			SoundManager::GetInstance()->StopBGM();
 
 			return;
 		}
@@ -326,6 +335,7 @@ void GameManager::PlayMainMenu()
 	{
 		cout << player->GetName() << ", 당신은 몬스터와 처절한 전투 끝에 사망하고 말았습니다." << endl;
 	}
+	SoundManager::GetInstance()->StopBGM();
 
 	return;
 }

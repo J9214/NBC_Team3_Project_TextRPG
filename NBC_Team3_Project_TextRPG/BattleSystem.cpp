@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <random>
+#include <algorithm>
+
 #include "BattleSystem.h"
 #include "HealthPotion.h"
 #include "AttackBoost.h"
@@ -8,6 +10,7 @@
 #include "Slime.h"
 #include "Troll.h"
 #include "BossMonster.h"
+
 using namespace std;
 
 Monster* BattleSystem::GenerateMonster(int level) 
@@ -52,6 +55,7 @@ bool BattleSystem::PlayerAttack(Monster* monster, Character* player)
 bool BattleSystem::MonsterAttack(Monster* monster, Character* player) 
 {
 	player->SetHealth(player->GetHealth() - monster->GetAttack());
+
 	return player->GetHealth() <= 0;
 }
 
@@ -61,7 +65,8 @@ void BattleSystem::Reward(Character* player)
 	int rdGetItem = rd() % 100;
 	int rdWhichItem = rd() % 100;
 	int rdGetGold = 10 + rd() % 11; 
-
+	cout << "=================== 전투 보상 =================== " << endl;
+	cout << endl;
 	cout << "플레이어 " << player->GetName() << "은(는) 50의 경험치를 획득하였다." << endl;
 
 	player->SetExperience(player->GetExperience() + 50);
@@ -73,6 +78,10 @@ void BattleSystem::Reward(Character* player)
 		cout << "플레이어 " << player->GetName() << "의 현재 레벨: " << player->GetLevel() << endl;
 
 	}
+
+	Notify(GameEvent::NORMAL_MONSTER_KILLED, 1);
+	Notify(GameEvent::GOLD_ACQUIRED, rdGetGold);
+
 	cout << "플레이어 " << player->GetName() << "은(는) " << rdGetGold << "골드를 획득하였다." << endl;
 	player->SetGold(player->GetGold() + rdGetGold);
 	cout << "플레이어 " << player->GetName() << "의 현재 골드: " << player->GetGold() << endl;
@@ -109,9 +118,41 @@ void BattleSystem::UseItem(Character* player)
 	int rdUseItem = rd() % 100;
 	if (rdUseItem < 30) 
 	{  
+		if (player->GetItem(0)->GetName() == "HealthPotion")
+		{
+			Notify(GameEvent::HEALTH_POTION_USED, 1);
+		}
+		else
+		{
+			Notify(GameEvent::ATTACK_BOOST_USED, 1);
+		}
+
 		cout << "플레이어 " << player->GetName() << "은(는) " << player->GetItem(0)->GetName() << "을 사용했다." << endl;
 		player->UseItem(0);  //인덱스0 아이템 사용
+		cout << "플레이어" << player->GetName() << " 체력: " << player->GetHealth() << " | 공격력: " << player->GetAttack() << endl;
 	}
 
 	return;
+}
+
+void BattleSystem::AddObserver(GameObserver* observer)
+{
+	observers.push_back(observer);
+}
+
+void BattleSystem::RemoveObserver(GameObserver* observer)
+{
+	auto it = find(observers.begin(), observers.end(), observer);
+	if (it != observers.end())
+	{
+		observers.erase(it);
+	}
+}
+
+void BattleSystem::Notify(GameEvent event, int value)
+{
+	for (GameObserver* observer : observers)
+	{
+		observer->OnNotify(event, value);
+	}
 }

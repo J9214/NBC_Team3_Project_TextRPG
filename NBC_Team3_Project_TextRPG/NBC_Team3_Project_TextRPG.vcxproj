@@ -76,11 +76,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\SFML-3.0.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\SFML-3.0.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if "$(ConfigurationName)" == "Debug" (</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -90,11 +96,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\SFML-3.0.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\SFML-3.0.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if "$(ConfigurationName)" == "Debug" (</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -102,11 +114,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\SFML-3.0.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-system-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-d-3.dll" "$(TargetDir)" /Y /I /D
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -116,17 +139,31 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\SFML-3.0.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-system-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-3.dll" "$(TargetDir)" /Y /I /D
+
+
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AttackBoost.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="BossMonster.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterStatObserver.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
@@ -136,6 +173,7 @@
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="Slime.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Troll.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterStatObserver.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="HealthPotion.h" />
@@ -153,6 +193,7 @@
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Slime.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Troll.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
