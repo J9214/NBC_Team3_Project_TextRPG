@@ -7,7 +7,7 @@ Character::Character(std::string name)
 	level(1),
 	maxHealth(200),
 	health(200),
-	attack(30),
+	attack(20),
 	experience(0),
 	gold(0),
 	inventory()
@@ -46,9 +46,9 @@ void Character::LevelUp()
 	{
 		level++;
 		experience -= 100;
-		maxHealth += level * 20;
+		maxHealth += 20;
 		health = maxHealth;
-		attack += level * 5;
+		attack += 5;
 	}
 }
 
