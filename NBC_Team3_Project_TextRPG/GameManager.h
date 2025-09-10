@@ -4,6 +4,7 @@
 #include "BattleSystem.h"
 #include "CharacterStatObserver.h"
 
+
 class Character;
 class Monster;
 

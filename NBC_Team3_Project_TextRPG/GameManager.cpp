@@ -3,9 +3,8 @@
 #include <Windows.h>
 #include "GameManager.h"
 #include "Character.h"
-#include "Goblin.h"
-#include "HealthPotion.h"
-#include "AttackBoost.h"
+#include "Sound.h"
+
 using namespace std;
 
 GameManager::GameManager()
@@ -234,12 +233,15 @@ void GameManager::PlayBattle()
 
 void GameManager::PlayMainMenu()
 {
+
 	if (player == nullptr)
 	{
 		player = MakeCharacter();
 	}
 	playerStatsOb = make_unique<CharacterStatObserver>(player);
 	gameBattleSystem.AddObserver(playerStatsOb.get());
+
+	SoundManager::GetInstance()->PlayBGM("src/music/main.mp3");
 
 	system("cls");
 
@@ -314,6 +316,7 @@ void GameManager::PlayMainMenu()
 		{
 			system("cls");
 			cout << "게임을 종료합니다..." << endl;
+			SoundManager::GetInstance()->StopBGM();
 
 			return;
 		}
@@ -333,6 +336,7 @@ void GameManager::PlayMainMenu()
 	{
 		cout << player->GetName() << ", 당신은 몬스터와 처절한 전투 끝에 사망하고 말았습니다." << endl;
 	}
+	SoundManager::GetInstance()->StopBGM();
 
 	return;
 }
