@@ -153,6 +153,11 @@ xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-d-3.dll" "$(TargetDir)
 xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-3.dll" "$(TargetDir)" /Y /I /D
 xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-3.dll" "$(TargetDir)" /Y /I /D
 xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-system-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-d-3.dll" "$(TargetDir)" /Y /I /D
+
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
