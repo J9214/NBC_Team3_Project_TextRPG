@@ -124,10 +124,10 @@
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-system-d-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-window-d-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-graphics-d-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-audio-d-3.dll" "$(TargetDir)" /Y /I /D
+      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-system-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-d-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-d-3.dll" "$(TargetDir)" /Y /I /D
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -149,10 +149,10 @@ xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-audio-d-3.dll" "$(TargetDir)" /Y /
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-system-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-window-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-graphics-3.dll" "$(TargetDir)" /Y /I /D
-xcopy "$(SolutionDir)libs\SFML-3.0.0\bin\sfml-audio-3.dll" "$(TargetDir)" /Y /I /D
+      <Command>xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-system-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-window-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-graphics-3.dll" "$(TargetDir)" /Y /I /D
+xcopy "$(SolutionDir)libs\SFML-3.0.0\folderdll\sfml-audio-3.dll" "$(TargetDir)" /Y /I /D
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

@@ -242,7 +242,7 @@ void GameManager::PlayMainMenu()
 	gameBattleSystem.AddObserver(playerStatsOb.get());
 
 	SoundManager::GetInstance()->PlayBGM("src/music/main.mp3");
-
+	system("pause");
 	system("cls");
 
 	while (player->GetHealth() != 0 && isClear == false)
